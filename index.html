@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="jv" class="scroll-smooth">
+<html lang="jv">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serat Pasinaon Basa Jawa — Nyerat Artikel Basa Jawa</title>
+  <title>Presentasi 3D — Nyerat Artikel Basa Jawa</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
     :root {
@@ -26,18 +29,25 @@
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
+    html,
     body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--arang-deep);
       background-image:
-        radial-gradient(ellipse at 50% 0%, rgba(76, 40, 117, 0.36) 0%, rgba(13, 11, 18, 0.96) 62%),
-        radial-gradient(circle at 85% 35%, rgba(42, 22, 66, 0.45) 0%, transparent 45%),
-        radial-gradient(circle at 15% 75%, rgba(76, 40, 117, 0.28) 0%, transparent 50%);
+        radial-gradient(ellipse at 50% 0%, rgba(76, 40, 117, 0.42) 0%, rgba(13, 11, 18, 0.98) 68%),
+        radial-gradient(circle at 85% 35%, rgba(42, 22, 66, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 15% 75%, rgba(76, 40, 117, 0.35) 0%, transparent 50%);
       color: var(--serat-cream);
-      overflow-x: hidden;
+      user-select: none;
     }
 
     .font-serat-title {
@@ -48,38 +58,39 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* Batik Parang Rusak Repeating Edge Border Pattern */
+    /* Batik Parang Rusak Edge Borders */
     .parang-edge-left,
     .parang-edge-right {
       position: fixed;
       top: 0;
       bottom: 0;
-      width: 22px;
+      width: 18px;
       z-index: 30;
       pointer-events: none;
-      opacity: 0.42;
+      opacity: 0.45;
       background-repeat: repeat-y;
-      background-size: 22px 66px;
+      background-size: 18px 54px;
     }
 
     .parang-edge-left {
       left: 0;
-      border-right: 1px solid rgba(212, 175, 55, 0.28);
-      background-image: url("data:image/svg+xml,%3Csvg width='22' height='66' viewBox='0 0 22 66' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.1'%3E%3Cpath d='M-4 18 C4 10, 12 4, 24 -2'/%3E%3Cpath d='M-4 34 C6 24, 14 16, 26 8'/%3E%3Cpath d='M-4 50 C6 40, 14 32, 26 24'/%3E%3Cpath d='M-4 66 C6 56, 14 48, 26 40'/%3E%3Ccircle cx='11' cy='16' r='2.2' fill='%23a87ffb' fill-opacity='0.45' stroke='none'/%3E%3Ccircle cx='11' cy='49' r='2.2' fill='%23d4af37' fill-opacity='0.55' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+      border-right: 1px solid rgba(212, 175, 55, 0.3);
+      background-image: url("data:image/svg+xml,%3Csvg width='22' height='66' viewBox='0 0 22 66' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.2'%3E%3Cpath d='M-4 18 C4 10, 12 4, 24 -2'/%3E%3Cpath d='M-4 34 C6 24, 14 16, 26 8'/%3E%3Cpath d='M-4 50 C6 40, 14 32, 26 24'/%3E%3Cpath d='M-4 66 C6 56, 14 48, 26 40'/%3E%3Ccircle cx='11' cy='16' r='2.2' fill='%23a87ffb' fill-opacity='0.5' stroke='none'/%3E%3Ccircle cx='11' cy='49' r='2.2' fill='%23d4af37' fill-opacity='0.6' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     .parang-edge-right {
       right: 0;
-      border-left: 1px solid rgba(212, 175, 55, 0.28);
+      border-left: 1px solid rgba(212, 175, 55, 0.3);
       transform: scaleX(-1);
-      background-image: url("data:image/svg+xml,%3Csvg width='22' height='66' viewBox='0 0 22 66' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.1'%3E%3Cpath d='M-4 18 C4 10, 12 4, 24 -2'/%3E%3Cpath d='M-4 34 C6 24, 14 16, 26 8'/%3E%3Cpath d='M-4 50 C6 40, 14 32, 26 24'/%3E%3Cpath d='M-4 66 C6 56, 14 48, 26 40'/%3E%3Ccircle cx='11' cy='16' r='2.2' fill='%23a87ffb' fill-opacity='0.45' stroke='none'/%3E%3Ccircle cx='11' cy='49' r='2.2' fill='%23d4af37' fill-opacity='0.55' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='22' height='66' viewBox='0 0 22 66' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.2'%3E%3Cpath d='M-4 18 C4 10, 12 4, 24 -2'/%3E%3Cpath d='M-4 34 C6 24, 14 16, 26 8'/%3E%3Cpath d='M-4 50 C6 40, 14 32, 26 24'/%3E%3Cpath d='M-4 66 C6 56, 14 48, 26 40'/%3E%3Ccircle cx='11' cy='16' r='2.2' fill='%23a87ffb' fill-opacity='0.5' stroke='none'/%3E%3Ccircle cx='11' cy='49' r='2.2' fill='%23d4af37' fill-opacity='0.6' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     @media (min-width: 768px) {
+
       .parang-edge-left,
       .parang-edge-right {
-        width: 34px;
-        background-size: 34px 90px;
+        width: 28px;
+        background-size: 28px 80px;
       }
     }
 
@@ -93,10 +104,9 @@
         0 4px 0 #6e4f0b,
         0 5px 0 #3f2363,
         0 6px 0 #261240,
-        0 10px 22px rgba(0, 0, 0, 0.85),
-        0 0 32px rgba(168, 127, 251, 0.35);
-      transform-style: preserve-3d;
-      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        0 12px 24px rgba(0, 0, 0, 0.88),
+        0 0 36px rgba(168, 127, 251, 0.4);
+      transform: translateZ(36px);
     }
 
     .text-3d-bab {
@@ -106,890 +116,1133 @@
         0 2px 0 #9c791b,
         0 3px 0 #4c2875,
         0 4px 0 #2a1642,
-        0 8px 16px rgba(0, 0, 0, 0.8);
-      transform-style: preserve-3d;
-      transition: transform 0.25s ease-out;
+        0 8px 18px rgba(0, 0, 0, 0.85);
+      transform: translateZ(24px);
     }
 
-    /* Royal Scroll Card Styling (Wungu + Arang + Kencana Trim) */
-    .serat-card {
-      background: linear-gradient(155deg, rgba(42, 22, 66, 0.72) 0%, rgba(19, 15, 29, 0.92) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.38);
-      border-radius: 22px;
-      box-shadow:
-        0 18px 42px -12px rgba(0, 0, 0, 0.78),
-        inset 0 1px 0 rgba(245, 215, 110, 0.22);
-      backdrop-filter: blur(12px);
+    /* 3D Stage & Slide Transitions */
+    .stage-3d {
+      perspective: 1600px;
       transform-style: preserve-3d;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+    }
+
+    .slide-3d {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      transition:
+        transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.65s ease;
+    }
+
+    /* Active slide in center */
+    .slide-3d.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg) scale(1);
+      filter: blur(0px);
+      z-index: 20;
+    }
+
+    /* Slide queued to the right (next) */
+    .slide-3d.next-pos {
+      opacity: 0;
+      transform: translate3d(42%, 0, -320px) rotateY(-42deg) scale(0.84);
+      filter: blur(4px);
+      z-index: 10;
+    }
+
+    /* Slide queued to the left (prev) */
+    .slide-3d.prev-pos {
+      opacity: 0;
+      transform: translate3d(-42%, 0, -320px) rotateY(42deg) scale(0.84);
+      filter: blur(4px);
+      z-index: 10;
+    }
+
+    /* Royal Scroll Card Styling with 3D Depth */
+    .serat-card {
+      background: linear-gradient(155deg, rgba(42, 22, 66, 0.78) 0%, rgba(19, 15, 29, 0.94) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.42);
+      border-radius: 20px;
+      box-shadow:
+        0 20px 45px -12px rgba(0, 0, 0, 0.82),
+        inset 0 1px 0 rgba(245, 215, 110, 0.25);
+      backdrop-filter: blur(14px);
+      transform-style: preserve-3d;
+      transition:
+        transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
     .serat-card:hover {
-      border-color: rgba(245, 215, 110, 0.85);
+      border-color: rgba(245, 215, 110, 0.88);
       box-shadow:
-        0 24px 50px -10px rgba(0, 0, 0, 0.88),
-        0 0 26px rgba(168, 127, 251, 0.22),
-        inset 0 1px 0 rgba(245, 215, 110, 0.45);
+        0 26px 55px -10px rgba(0, 0, 0, 0.9),
+        0 0 28px rgba(168, 127, 251, 0.28),
+        inset 0 1px 0 rgba(245, 215, 110, 0.48);
     }
 
-    /* High-Contrast Luminous Lontar Sub-Card */
     .lontar-highlight {
-      background: linear-gradient(145deg, rgba(76, 40, 117, 0.45) 0%, rgba(28, 17, 43, 0.88) 100%);
-      border: 1px solid rgba(168, 127, 251, 0.42);
-      border-radius: 18px;
-      box-shadow: inset 0 0 24px rgba(168, 127, 251, 0.08);
+      background: linear-gradient(145deg, rgba(76, 40, 117, 0.48) 0%, rgba(28, 17, 43, 0.9) 100%);
+      border: 1px solid rgba(168, 127, 251, 0.45);
+      border-radius: 16px;
+      box-shadow: inset 0 0 24px rgba(168, 127, 251, 0.1);
+      transform-style: preserve-3d;
     }
 
-    /* Scroll Unfold Reveal Animation */
-    .scroll-unfold {
-      opacity: 0;
-      transform: perspective(1100px) rotateX(8deg) translateY(36px) scale(0.98);
-      transition:
-        opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    /* 3D Layer Pop inside cards */
+    .layer-z-15 {
+      transform: translateZ(15px);
     }
 
-    .scroll-unfold.is-visible {
-      opacity: 1;
-      transform: perspective(1100px) rotateX(0deg) translateY(0) scale(1);
+    .layer-z-25 {
+      transform: translateZ(25px);
     }
 
-    /* Royal Scroll Roller Cap (Gulungan Lontar Ends) */
+    /* Royal Scroll Roller Cap */
     .scroll-roller {
-      height: 14px;
+      height: 10px;
       background: linear-gradient(90deg, #4c2875 0%, #d4af37 18%, #f5d76e 50%, #d4af37 82%, #4c2875 100%);
       border-radius: 999px;
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45), inset 0 2px 3px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.55);
     }
 
-    /* Floating Bookmark Nav Pill */
-    .bookmark-item {
+    /* Active Jenis Card Highlight */
+    .jinis-card {
+      cursor: pointer;
+    }
+
+    .jinis-card.selected-jinis {
+      border-color: #f5d76e !important;
+      background: linear-gradient(155deg, rgba(76, 40, 117, 0.92) 0%, rgba(28, 17, 46, 0.98) 100%);
+      box-shadow: 0 0 32px rgba(245, 215, 110, 0.35), 0 20px 45px rgba(0, 0, 0, 0.85);
+      transform: perspective(900px) translateZ(18px) scale(1.02);
+    }
+
+    /* Slide Indicator Pill */
+    .dot-indicator {
       transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .bookmark-item.active {
+
+    .dot-indicator.active {
       background: linear-gradient(135deg, #d4af37 0%, #f5d76e 100%);
       color: #0d0b12;
       border-color: #fff6cc;
-      transform: translateX(-6px) scale(1.05);
-      box-shadow: 0 0 18px rgba(212, 175, 55, 0.55);
+      transform: scale(1.12);
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.65);
     }
 
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
+    /* Custom thin internal scroll ONLY if tiny screen needs it */
+    .slide-inner-scroll {
+      max-height: calc(100dvh - 132px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #d4af37 transparent;
     }
-    ::-webkit-scrollbar-track {
-      background: #0d0b12;
+
+    .slide-inner-scroll::-webkit-scrollbar {
+      width: 4px;
     }
-    ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #4c2875, #d4af37);
+
+    .slide-inner-scroll::-webkit-scrollbar-thumb {
+      background: #d4af37;
       border-radius: 999px;
     }
   </style>
 </head>
+
 <body class="selection:bg-[#d4af37] selection:text-[#0d0b12]">
 
-  <!-- Top Scroll Progress Bar (Gold-Purple Gradient) -->
-  <div class="fixed top-0 left-0 right-0 h-1.5 z-50 bg-[#15111e]/90 backdrop-blur">
-    <div id="scroll-progress" class="h-full w-0 bg-gradient-to-r from-[#4c2875] via-[#a87ffb] to-[#f5d76e] shadow-[0_0_12px_#f5d76e] transition-all duration-100"></div>
-  </div>
+  <!-- 3D Floating Gold & Purple Dust Particle Canvas -->
+  <canvas id="particle-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
   <!-- Left & Right Batik Parang Rusak Edge Borders -->
   <div class="parang-edge-left" aria-hidden="true"></div>
   <div class="parang-edge-right" aria-hidden="true"></div>
 
-  <!-- Top Floating Serat Header -->
-  <header class="sticky top-1.5 z-40 max-w-5xl mx-auto px-7 sm:px-12 pt-3">
-    <div class="bg-[#15111e]/85 border border-[#d4af37]/35 rounded-2xl px-4 py-2.5 backdrop-blur-md shadow-xl flex items-center justify-between gap-3">
-      <a href="#sampul" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4c2875] to-[#2a1642] border border-[#d4af37] flex items-center justify-center shadow group-hover:scale-105 transition">
+  <!-- Top Presentation HUD Header -->
+  <header class="fixed top-0 left-0 right-0 z-40 px-6 sm:px-10 pt-2.5">
+    <div
+      class="max-w-6xl mx-auto bg-[#15111e]/85 border border-[#d4af37]/35 rounded-2xl px-4 py-2 backdrop-blur-md shadow-xl flex items-center justify-between gap-3">
+      <!-- Brand / Return to Cover -->
+      <button onclick="goToSlide(0)" class="flex items-center gap-2.5 text-left group focus:outline-none">
+        <div
+          class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4c2875] to-[#2a1642] border border-[#d4af37] flex items-center justify-center shadow group-hover:scale-105 transition">
           <span class="font-serat-title text-[#f5d76e] font-black text-sm">ꦄ</span>
         </div>
         <div>
-          <span class="block text-[10px] uppercase tracking-[0.2em] text-[#a87ffb] font-bold">Serat Pasinaon</span>
+          <span class="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#a87ffb] font-bold">Presentasi
+            3D • Serat Pasinaon</span>
           <span class="font-jawa-serif text-xs sm:text-sm font-bold text-[#f4f0ea]">Nyerat Artikel Basa Jawa</span>
         </div>
-      </a>
+      </button>
 
-      <!-- Mobile Quick Section Jump Dropdown -->
-      <div class="flex items-center gap-2">
-        <span class="hidden sm:inline text-xs text-[#f5d76e]/90 font-medium">Anggun Deswita Maharani</span>
-        <select aria-label="Pilih Bab" onchange="if(this.value) document.querySelector(this.value).scrollIntoView({behavior:'smooth'})" class="xl:hidden bg-[#2a1642] text-[#f4f0ea] text-xs font-semibold border border-[#d4af37]/50 rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-[#f5d76e]">
-          <option value="#sampul">Sampul</option>
-          <option value="#bab-1">1. Pangerten</option>
-          <option value="#bab-2">2. Struktur</option>
-          <option value="#bab-3">3. Jinis Artikel</option>
-          <option value="#bab-4">4. Trap-trapan</option>
-          <option value="#bab-5">5. Bab Digatekake</option>
-          <option value="#bab-6">6. Tuladha</option>
-          <option value="#dudutan">Dudutan</option>
-        </select>
+      <!-- Right Controls: Slide Counter + Fullscreen Toggle -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <span class="hidden md:inline text-xs text-[#f5d76e]/90 font-medium">Anggun Deswita Maharani</span>
+        <div id="slide-counter-badge"
+          class="px-3 py-1 rounded-xl bg-[#2a1642] border border-[#d4af37]/50 text-xs font-bold text-[#f5d76e] tracking-wider">
+          Slide 1 / 8
+        </div>
+        <button id="fullscreen-btn" onclick="toggleFullscreen()" title="Mode Layar Penuh (Fullscreen)"
+          class="p-2 rounded-xl bg-[#2a1642] hover:bg-[#4c2875] border border-[#d4af37]/50 text-[#f5d76e] transition flex items-center gap-1.5 text-xs font-bold">
+          <svg id="fs-icon-expand" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4" />
+          </svg>
+          <span class="hidden sm:inline">Layar Penuh</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Floating Vertical Bookmark Navigation (Desktop Right Side) -->
-  <nav aria-label="Navigasi Bab Serat" class="hidden xl:flex fixed right-11 top-1/2 -translate-y-1/2 z-40 flex-col gap-2.5">
-    <a href="#sampul" data-target="sampul" class="bookmark-item active px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>❖</span><span>Sampul</span>
-    </a>
-    <a href="#bab-1" data-target="bab-1" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>I</span><span>Pangerten</span>
-    </a>
-    <a href="#bab-2" data-target="bab-2" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>II</span><span>Struktur</span>
-    </a>
-    <a href="#bab-3" data-target="bab-3" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>III</span><span>Jinis Artikel</span>
-    </a>
-    <a href="#bab-4" data-target="bab-4" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>IV</span><span>Trap-trapan</span>
-    </a>
-    <a href="#bab-5" data-target="bab-5" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>V</span><span>Paugeran Basa</span>
-    </a>
-    <a href="#bab-6" data-target="bab-6" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>VI</span><span>Tuladha</span>
-    </a>
-    <a href="#dudutan" data-target="dudutan" class="bookmark-item px-3.5 py-2 rounded-l-2xl rounded-r-md bg-[#1a1326]/90 border border-[#d4af37]/40 text-xs font-bold text-[#f4f0ea] flex items-center gap-2 shadow-lg backdrop-blur">
-      <span>✦</span><span>Dudutan</span>
-    </a>
-  </nav>
-
-  <!-- Main Vertical Scroll Storytelling Container (Gulungan Lontar / Serat) -->
-  <main class="relative z-10 max-w-4xl mx-auto px-7 sm:px-12 pt-8 pb-20 space-y-16 sm:space-y-24">
+  <!-- =========================================================
+       3D PRESENTATION DECK VIEWPORT (100vh Stage)
+       ========================================================= -->
+  <main id="deck-stage" class="stage-3d relative w-full h-full z-10">
 
     <!-- =========================================================
-         HERO / SAMPUL SERAT (Section 0)
+         SLIDE 1: SAMPUL SERAT
          ========================================================= -->
-    <section id="sampul" class="scroll-mt-24 relative pt-4 pb-6">
-      <!-- Top Scroll Roller Bar -->
-      <div class="scroll-roller w-full mb-8"></div>
+    <section class="slide-3d active px-6 sm:px-12" data-slide="0">
+      <div class="w-full max-w-4xl mx-auto">
+        <div class="scroll-roller w-full mb-3 sm:mb-4"></div>
 
-      <div class="serat-card relative overflow-hidden px-6 py-12 sm:px-12 sm:py-16 text-center">
-        <!-- Subtle Gunungan Silhouette Watermark -->
-        <svg class="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-[0.09] text-[#f5d76e] scale-110" viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M150 12 C192 85, 255 165, 268 280 C230 298, 195 304, 150 304 C105 304, 70 298, 32 280 C45 165, 108 85, 150 12 Z" stroke="currentColor" stroke-width="3" fill="rgba(168,127,251,0.18)"/>
-          <path d="M150 45 C180 105, 225 170, 235 262 C205 274, 180 278, 150 278 C120 278, 95 274, 65 262 C75 170, 120 105, 150 45 Z" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 5"/>
-          <line x1="150" y1="24" x2="150" y2="345" stroke="currentColor" stroke-width="2.5"/>
-          <circle cx="150" cy="180" r="36" stroke="currentColor" stroke-width="2"/>
-          <path d="M95 345 H205 L186 304 H114 Z" stroke="currentColor" stroke-width="2"/>
-        </svg>
+        <div class="serat-card tilt-card relative overflow-hidden px-6 py-8 sm:px-12 sm:py-12 text-center">
+          <!-- Subtle Gunungan Silhouette Watermark -->
+          <svg
+            class="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-[0.1] text-[#f5d76e] scale-110"
+            viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M150 12 C192 85, 255 165, 268 280 C230 298, 195 304, 150 304 C105 304, 70 298, 32 280 C45 165, 108 85, 150 12 Z"
+              stroke="currentColor" stroke-width="3" fill="rgba(168,127,251,0.18)" />
+            <path
+              d="M150 45 C180 105, 225 170, 235 262 C205 274, 180 278, 150 278 C120 278, 95 274, 65 262 C75 170, 120 105, 150 45 Z"
+              stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 5" />
+            <line x1="150" y1="24" x2="150" y2="345" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="150" cy="180" r="36" stroke="currentColor" stroke-width="2" />
+            <path d="M95 345 H205 L186 304 H114 Z" stroke="currentColor" stroke-width="2" />
+          </svg>
 
-        <div class="relative z-10 flex flex-col items-center">
-          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4c2875]/70 border border-[#a87ffb]/60 text-[#f5d76e] text-xs sm:text-sm font-bold tracking-[0.22em] uppercase mb-6 shadow-lg">
-            <span>◈</span> MATERI PASINAON BASA JAWA <span>◈</span>
-          </span>
+          <div class="relative z-10 flex flex-col items-center" style="transform-style: preserve-3d;">
+            <span
+              class="layer-z-15 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4c2875]/80 border border-[#a87ffb]/65 text-[#f5d76e] text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase mb-4 sm:mb-5 shadow-lg">
+              <span>◈</span> MATERI PASINAON BASA JAWA <span>◈</span>
+            </span>
 
-          <!-- 3D Extruded Main Title -->
-          <h1 class="tilt-3d font-serat-title text-3xl sm:text-5xl md:text-6xl font-black tracking-wide text-3d-kencana leading-tight mb-5 cursor-default select-none">
-            NYERAT ARTIKEL<br/>BASA JAWA
-          </h1>
+            <!-- 3D Extruded Main Title -->
+            <h1
+              class="font-serat-title text-3xl sm:text-5xl md:text-6xl font-black tracking-wide text-3d-kencana leading-tight mb-4">
+              NYERAT ARTIKEL<br />BASA JAWA
+            </h1>
 
-          <p class="font-jawa-serif italic text-base sm:text-xl text-[#f4f0ea]/95 max-w-2xl mb-8 leading-relaxed">
-            "Pangerten, Struktur, Jinis, lan Trap-trapan Nyerat Artikel"
-          </p>
-
-          <!-- Author Royal Seal -->
-          <div class="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-4 px-6 py-3 rounded-2xl bg-[#0d0b12]/80 border border-[#d4af37]/60 shadow-xl">
-            <span class="text-xs uppercase tracking-widest text-[#a87ffb] font-bold">Disusun dening:</span>
-            <span class="font-jawa-serif text-lg sm:text-xl font-extrabold text-[#f5d76e]">Anggun Deswita Maharani</span>
-          </div>
-
-          <!-- Scroll Cue -->
-          <a href="#bab-1" class="mt-10 inline-flex flex-col items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#d4af37] hover:text-[#f5d76e] transition group">
-            <span>Buka Gulungan Serat</span>
-            <svg class="w-5 h-5 animate-bounce text-[#a87ffb]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ornamental Ukiran Jawa Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-      <svg class="w-8 h-8 text-[#d4af37]" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M16 2L19.5 12.5L30 16L19.5 19.5L16 30L12.5 19.5L2 16L12.5 12.5L16 2Z"/>
-      </svg>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-    </div>
-
-    <!-- =========================================================
-         BAB 1: PANGERTEN ARTIKEL (PENGERTIAN)
-         ========================================================= -->
-    <section id="bab-1" class="scroll-mt-24 scroll-unfold space-y-7">
-      <div class="text-center sm:text-left">
-        <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-          Perangan I • 2 / 8
-        </span>
-        <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-          1. Pangerten Artikel (Pengertian)
-        </h2>
-      </div>
-
-      <!-- Definisi Artikel Banner -->
-      <div class="serat-card tilt-card p-6 sm:p-8 border-l-4 border-l-[#f5d76e]">
-        <div class="flex flex-col sm:flex-row items-start gap-4">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-2xl flex items-center justify-center shrink-0 shadow-lg">
-            A
-          </div>
-          <div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2">Definisi Artikel</h3>
-            <p class="text-base sm:text-lg text-[#f4f0ea] leading-relaxed">
-              <strong>Artikel</strong> yaiku karangan nyata (<em>non-fiksi</em>) kang jangkep kanthi dawa tinamtu, digawe kanggo disebarake lumantar <strong>ariwarti</strong> (koran), <strong>kalawarti</strong> (majalah), utawa <strong>medhia online</strong>.
+            <p
+              class="layer-z-15 font-jawa-serif italic text-sm sm:text-xl text-[#f4f0ea]/95 max-w-2xl mb-6 leading-relaxed">
+              "Pangerten, Struktur, Jinis, lan Trap-trapan Nyerat Artikel"
             </p>
+
+            <!-- Author Royal Seal -->
+            <div
+              class="layer-z-25 inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 px-5 py-2.5 rounded-2xl bg-[#0d0b12]/85 border border-[#d4af37]/65 shadow-xl mb-6">
+              <span class="text-[11px] uppercase tracking-widest text-[#a87ffb] font-bold">Disusun dening:</span>
+              <span class="font-jawa-serif text-base sm:text-xl font-extrabold text-[#f5d76e]">Anggun Deswita
+                Maharani</span>
+            </div>
+
+            <!-- Start Presentation CTA -->
+            <button onclick="nextSlide()"
+              class="layer-z-25 px-7 py-3 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f5d76e] to-[#d4af37] text-[#0d0b12] font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(212,175,55,0.55)] hover:scale-105 active:scale-95 transition flex items-center gap-2">
+              <span>Miwiti Presentasi</span>
+              <span class="text-base">→</span>
+            </button>
           </div>
         </div>
+
+        <div class="scroll-roller w-full mt-3 sm:mt-4"></div>
       </div>
+    </section>
 
-      <!-- Ancas & Ciri-ciri Dual Pillars -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Ancas (Tujuan) Nulis Artikel -->
-        <div class="serat-card tilt-card p-6 space-y-4">
-          <div class="flex items-center justify-between border-b border-[#d4af37]/30 pb-3">
-            <h3 class="font-jawa-serif text-xl font-bold text-[#f5d76e]">Ancas (Tujuan) Nulis Artikel</h3>
-            <span class="px-2.5 py-0.5 rounded-lg bg-[#4c2875] text-[#f4f0ea] text-xs font-bold">4 Tujuan</span>
+    <!-- =========================================================
+         SLIDE 2: 1. PANGERTEN ARTIKEL (PENGERTIAN)
+         ========================================================= -->
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="1">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-1">
+          <div>
+            <span
+              class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+              Perangan I • Slide 2 / 8
+            </span>
+            <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+              1. Pangerten Artikel (Pengertian)
+            </h2>
           </div>
-          <ul class="space-y-3 text-sm sm:text-base text-[#f4f0ea]/95">
-            <li class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-              <span>Ngandharake gagasan lan kasunyatan (fakta).</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-              <span>Ngyakinake pamaca marang sawijining panemu.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-              <span>Nggulawentah (mendidik) lan menehi kawruh anyar.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
-              <span>Nyenengake utawa nglipur pamaca.</span>
-            </li>
-          </ul>
         </div>
 
-        <!-- Ciri-ciri Utama Artikel -->
-        <div class="serat-card tilt-card p-6 space-y-4">
-          <div class="flex items-center justify-between border-b border-[#a87ffb]/30 pb-3">
-            <h3 class="font-jawa-serif text-xl font-bold text-[#a87ffb]">Ciri-ciri Utama Artikel</h3>
-            <span class="px-2.5 py-0.5 rounded-lg bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#f5d76e] text-xs font-bold">4 Titikan</span>
+        <!-- Definisi Artikel Banner -->
+        <div class="serat-card tilt-card p-4 sm:p-6 border-l-4 border-l-[#f5d76e]">
+          <div class="flex items-start gap-4 layer-z-15">
+            <div
+              class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-xl sm:text-2xl flex items-center justify-center shrink-0 shadow-lg">
+              A
+            </div>
+            <div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1">Definisi Artikel</h3>
+              <p class="text-sm sm:text-base text-[#f4f0ea] leading-relaxed">
+                <strong>Artikel</strong> yaiku karangan nyata (<em>non-fiksi</em>) kang jangkep kanthi dawa tinamtu,
+                digawe kanggo disebarake lumantar <strong>ariwarti</strong> (koran), <strong>kalawarti</strong>
+                (majalah), utawa <strong>medhia online</strong>.
+              </p>
+            </div>
           </div>
-          <ul class="space-y-3 text-sm sm:text-base text-[#f4f0ea]/95">
-            <li class="flex items-start gap-3">
-              <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-              <span>Adhedhasar kasunyatan (fakta), dudu khayalan.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-              <span>Isine cekak aos (padat, ringkes, lan jelas).</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-              <span>Nggunakake basa kang komunikatif lan gampang dimangerteni.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-              <span>Sipate objektif lan logis.</span>
-            </li>
-          </ul>
+        </div>
+
+        <!-- Ancas & Ciri-ciri Dual Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <!-- Ancas (Tujuan) -->
+          <div class="serat-card tilt-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center justify-between border-b border-[#d4af37]/30 pb-2 layer-z-15">
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Ancas (Tujuan) Nulis Artikel</h3>
+              <span class="px-2.5 py-0.5 rounded-lg bg-[#4c2875] text-[#f4f0ea] text-[11px] font-bold">4 Tujuan</span>
+            </div>
+            <ul class="space-y-2 text-xs sm:text-sm text-[#f4f0ea]/95 layer-z-15">
+              <li class="flex items-start gap-2.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                <span>Ngandharake gagasan lan kasunyatan (fakta).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                <span>Ngyakinake pamaca marang sawijining panemu.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                <span>Nggulawentah (mendidik) lan menehi kawruh anyar.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span
+                  class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                <span>Nyenengake utawa nglipur pamaca.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ciri-ciri Utama -->
+          <div class="serat-card tilt-card p-4 sm:p-5 space-y-3">
+            <div class="flex items-center justify-between border-b border-[#a87ffb]/30 pb-2 layer-z-15">
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#a87ffb]">Ciri-ciri Utama Artikel</h3>
+              <span
+                class="px-2.5 py-0.5 rounded-lg bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#f5d76e] text-[11px] font-bold">4
+                Titikan</span>
+            </div>
+            <ul class="space-y-2 text-xs sm:text-sm text-[#f4f0ea]/95 layer-z-15">
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
+                <span>Adhedhasar kasunyatan (fakta), dudu khayalan.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
+                <span>Isine cekak aos (padat, ringkes, lan jelas).</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
+                <span>Nggunakake basa kang komunikatif lan gampang dimangerteni.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
+                <span>Sipate objektif lan logis.</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Ornamental Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-      <span class="text-[#f5d76e] text-lg">❖ ◈ ❖</span>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-    </div>
-
     <!-- =========================================================
-         BAB 2: STRUKTUR ARTIKEL BASA JAWA (Connected Pillars)
+         SLIDE 3: 2. STRUKTUR ARTIKEL BASA JAWA
          ========================================================= -->
-    <section id="bab-2" class="scroll-mt-24 scroll-unfold space-y-7">
-      <div>
-        <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-          Perangan II • 3 / 8
-        </span>
-        <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-          2. Struktur Artikel Basa Jawa
-        </h2>
-      </div>
-
-      <!-- Connected Vertical Scroll Pillars -->
-      <div class="relative pl-6 sm:pl-10 space-y-5 before:content-[''] before:absolute before:left-2.5 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-[#f5d76e] before:via-[#a87ffb] before:to-[#4c2875]">
-        
-        <!-- 1. Irah-irahan -->
-        <div class="serat-card tilt-card p-5 sm:p-6 relative">
-          <div class="absolute -left-[23px] sm:-left-[33px] top-6 w-4 h-4 rounded-full bg-[#f5d76e] border-4 border-[#0d0b12] shadow-[0_0_12px_#f5d76e]"></div>
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e]">1. Irah-irahan (Judul)</h3>
-            <span class="px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-xs font-semibold">Perangan Kawitan</span>
-          </div>
-          <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-            Makili tema utawa inti isi artikel. Digawe cekak, jelas, lan narik kawigaten pamaca supaya gelem maca isine.
-          </p>
-        </div>
-
-        <!-- 2. Pambuka -->
-        <div class="serat-card tilt-card p-5 sm:p-6 relative">
-          <div class="absolute -left-[23px] sm:-left-[33px] top-6 w-4 h-4 rounded-full bg-[#a87ffb] border-4 border-[#0d0b12] shadow-[0_0_12px_#a87ffb]"></div>
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e]">2. Pambuka (Pendahuluan)</h3>
-            <span class="px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-xs font-semibold">Latar Belakang</span>
-          </div>
-          <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-            Ngandharake latar belakang masalah, gambaran umum topik, utawa gagasan pokok kang bakal dirembug.
-          </p>
-        </div>
-
-        <!-- 3. Isi -->
-        <div class="serat-card tilt-card p-5 sm:p-6 relative">
-          <div class="absolute -left-[23px] sm:-left-[33px] top-6 w-4 h-4 rounded-full bg-[#f5d76e] border-4 border-[#0d0b12] shadow-[0_0_12px_#f5d76e]"></div>
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e]">3. Isi (Batang Tubuh)</h3>
-            <span class="px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-xs font-semibold">Pokok Andharan</span>
-          </div>
-          <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-            Njlentrehake pokok-pokok pikiran kanthi rinci, sistematis, lan didhukung dening fakta, data, utawa tuladha nyata.
-          </p>
-        </div>
-
-        <!-- 4. Panutup / Dudutan -->
-        <div class="serat-card tilt-card p-5 sm:p-6 relative">
-          <div class="absolute -left-[23px] sm:-left-[33px] top-6 w-4 h-4 rounded-full bg-[#a87ffb] border-4 border-[#0d0b12] shadow-[0_0_12px_#a87ffb]"></div>
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e]">4. Panutup / Dudutan (Kesimpulan)</h3>
-            <span class="px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-xs font-semibold">Ringkesan & Saran</span>
-          </div>
-          <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-            Ngamot ringkesan saka andharan isi ing ndhuwur, sarta saran, solusi, utawa pangarep-arep saka penulis.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Ornamental Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-      <svg class="w-8 h-8 text-[#a87ffb]" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M16 2L19.5 12.5L30 16L19.5 19.5L16 30L12.5 19.5L2 16L12.5 12.5L16 2Z"/>
-      </svg>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-    </div>
-
-    <!-- =========================================================
-         BAB 3: JINIS-JINIS ARTIKEL (Interactive 3D Cards + Filter)
-         ========================================================= -->
-    <section id="bab-3" class="scroll-mt-24 scroll-unfold space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="2">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
         <div>
-          <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-            Perangan III • 4 / 8
+          <span
+            class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+            Perangan II • Slide 3 / 8
           </span>
-          <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-            3. Jinis-jinis Artikel
+          <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+            2. Struktur Artikel Basa Jawa
           </h2>
         </div>
-        <p class="text-xs sm:text-sm text-[#f5d76e]/90">Pilih jinis artikel kanggo nyorot utawa maca kabeh:</p>
-      </div>
 
-      <!-- Interactive Filter Pills -->
-      <div id="jinis-filters" class="flex flex-wrap gap-2">
-        <button onclick="filterJinis('all')" data-filter="all" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-[#f5d76e] bg-gradient-to-r from-[#d4af37] to-[#f5d76e] text-[#0d0b12] shadow transition">
-          Kabeh (5 Jinis)
-        </button>
-        <button onclick="filterJinis('dheskripsi')" data-filter="dheskripsi" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition">
-          1. Dheskripsi
-        </button>
-        <button onclick="filterJinis('narasi')" data-filter="narasi" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition">
-          2. Narasi
-        </button>
-        <button onclick="filterJinis('eksposisi')" data-filter="eksposisi" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition">
-          3. Eksposisi
-        </button>
-        <button onclick="filterJinis('argumentasi')" data-filter="argumentasi" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition">
-          4. Argumentasi
-        </button>
-        <button onclick="filterJinis('persuasi')" data-filter="persuasi" class="jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition">
-          5. Persuasi
-        </button>
-      </div>
-
-      <!-- 5 Jenis Artikel Cards Grid -->
-      <div id="jinis-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <!-- 1. Artikel Dheskripsi -->
-        <article data-jinis="dheskripsi" class="jinis-card serat-card tilt-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-serat-title text-sm font-black text-[#a87ffb] tracking-widest">JINIS 01</span>
-              <span class="px-2.5 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-xs font-semibold">Gegambaran Rinci</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <!-- 1. Irah-irahan -->
+          <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#f5d76e]">
+            <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
+              <div class="flex items-center gap-2.5">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">01</span>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Irah-irahan (Judul)</h3>
+              </div>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Kawitan</span>
             </div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2.5">Artikel Dheskripsi</h3>
-            <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-              Nggambarake sawijining kahanan, papan, utawa prastawa kanthi rinci saengga pamaca kaya-kaya melu ndeleng lan ngrasakake dhewe.
+            <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
+              Makili tema utawa inti isi artikel. Digawe cekak, jelas, lan narik kawigaten pamaca supaya gelem maca
+              isine.
             </p>
           </div>
-        </article>
 
-        <!-- 2. Artikel Narasi -->
-        <article data-jinis="narasi" class="jinis-card serat-card tilt-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-serat-title text-sm font-black text-[#a87ffb] tracking-widest">JINIS 02</span>
-              <span class="px-2.5 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-xs font-semibold">Urutan Wektu</span>
+          <!-- 2. Pambuka -->
+          <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#a87ffb]">
+            <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
+              <div class="flex items-center gap-2.5">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow">02</span>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Pambuka (Pendahuluan)</h3>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Latar
+                Belakang</span>
             </div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2.5">Artikel Narasi</h3>
-            <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-              Nyritakake sawijining prastawa utawa kedadeyan kanthi urut adhedhasar urutan wektu (kronologis) saka wiwitan nganti pungkasan.
+            <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
+              Ngandharake latar belakang masalah, gambaran umum topik, utawa gagasan pokok kang bakal dirembug.
             </p>
           </div>
-        </article>
 
-        <!-- 3. Artikel Eksposisi -->
-        <article data-jinis="eksposisi" class="jinis-card serat-card tilt-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-serat-title text-sm font-black text-[#a87ffb] tracking-widest">JINIS 03</span>
-              <span class="px-2.5 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-xs font-semibold">Kawruh & Informasi</span>
+          <!-- 3. Isi -->
+          <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#f5d76e]">
+            <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
+              <div class="flex items-center gap-2.5">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">03</span>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Isi (Batang Tubuh)</h3>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Pokok
+                Andharan</span>
             </div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2.5">Artikel Eksposisi</h3>
-            <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-              Menehi informasi, katrangan, utawa kawruh tambahan marang pamaca kanthi jlentreh tanpa meksa pamaca.
+            <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
+              Njlentrehake pokok-pokok pikiran kanthi rinci, sistematis, lan didhukung dening fakta, data, utawa tuladha
+              nyata.
             </p>
           </div>
-        </article>
 
-        <!-- 4. Artikel Argumentasi -->
-        <article data-jinis="argumentasi" class="jinis-card serat-card tilt-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-serat-title text-sm font-black text-[#a87ffb] tracking-widest">JINIS 04</span>
-              <span class="px-2.5 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-xs font-semibold">Dhasar Data & Bukti</span>
+          <!-- 4. Panutup / Dudutan -->
+          <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#a87ffb]">
+            <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
+              <div class="flex items-center gap-2.5">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow">04</span>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Panutup / Dudutan</h3>
+              </div>
+              <span
+                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Kesimpulan</span>
             </div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2.5">Artikel Argumentasi</h3>
-            <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-              Mbenerake utawa mbuktekake sawijining panemu kanthi dhasar data, alasan, lan bukti fakta kang kuwat.
+            <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
+              Ngamot ringkesan saka andharan isi ing ndhuwur, sarta saran, solusi, utawa pangarep-arep saka penulis.
             </p>
-          </div>
-        </article>
-
-        <!-- 5. Artikel Persuasi (Spans full width on md) -->
-        <article data-jinis="persuasi" class="jinis-card serat-card tilt-card p-6 md:col-span-2 flex flex-col justify-between border-l-4 border-l-[#a87ffb]">
-          <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-serat-title text-sm font-black text-[#a87ffb] tracking-widest">JINIS 05</span>
-              <span class="px-2.5 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-xs font-semibold">Pangajak Pamaca</span>
-            </div>
-            <h3 class="font-jawa-serif text-xl sm:text-2xl font-bold text-[#f5d76e] mb-2.5">Artikel Persuasi</h3>
-            <p class="text-sm sm:text-base text-[#f4f0ea]/95 leading-relaxed">
-              Ngajak, mbujuk, utawa narik kawigaten pamaca supaya gelem nindakake apa kang dikarepake dening penulis.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Ornamental Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-      <span class="text-[#f5d76e] text-lg">❖ ◈ ❖</span>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-    </div>
-
-    <!-- =========================================================
-         BAB 4: TRAP-TRAPAN NYERAT ARTIKEL (6 Sequential Timeline Steps)
-         ========================================================= -->
-    <section id="bab-4" class="scroll-mt-24 scroll-unfold space-y-7">
-      <div>
-        <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-          Perangan IV • 5 / 8
-        </span>
-        <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-          4. Trap-trapan Nyerat Artikel
-        </h2>
-      </div>
-
-      <!-- 6 Sequential Timeline Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- Step 1 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-base flex items-center justify-center shadow">1</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Nemtokake Tema</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Pilih topik kang lagi hangat dirembug utawa cedhak karo masyarakat (budaya, lingkungan, pendhidhikan).
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 1 / 6
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-base flex items-center justify-center shadow">2</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Nemtokake Ancas</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Temtokake tujuan tulisan: apa kanggo menehi informasi, njlentrehake, utawa ngajak pamaca.
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 2 / 6
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-base flex items-center justify-center shadow">3</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Ngumpulake Bahan</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Golek referensi saka buku, internet, wawancara narasumber, utawa observasi langsung.
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 3 / 6
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-base flex items-center justify-center shadow border border-[#f5d76e]/40">4</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Nyusun Cengkorongan</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Gawe kerangka garis gedhe isi artikel saka pambuka nganti panutup supaya urut.
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 4 / 6
-          </div>
-        </div>
-
-        <!-- Step 5 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-base flex items-center justify-center shadow border border-[#f5d76e]/40">5</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Ngembangake Tulisan</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Tulis cengkorongan dadi paragraf kang wutuh nganggo basa lan ejaan Jawa kang bener.
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 5 / 6
-          </div>
-        </div>
-
-        <!-- Step 6 -->
-        <div class="serat-card tilt-card p-5 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center gap-3 mb-3">
-              <span class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-base flex items-center justify-center shadow border border-[#f5d76e]/40">6</span>
-              <h3 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Nyunting (Editing)</h3>
-            </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Waca maneh tulisan kanggo mbenerake salah ketik (typo) lan unggah-ungguh basa.
-            </p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-[#d4af37]/20 text-[11px] font-bold uppercase tracking-wider text-[#a87ffb]">
-            Tataran 6 / 6
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Ornamental Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-      <svg class="w-8 h-8 text-[#d4af37]" viewBox="0 0 32 32" fill="currentColor">
-        <path d="M16 2L19.5 12.5L30 16L19.5 19.5L16 30L12.5 19.5L2 16L12.5 12.5L16 2Z"/>
-      </svg>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#d4af37] to-[#a87ffb]"></div>
-    </div>
-
     <!-- =========================================================
-         BAB 5: BAB KANG KUDU DIGATEKAKE ING BASA JAWA (3 Key Aspects)
+         SLIDE 4: 3. JINIS-JINIS ARTIKEL (5 Interactive 3D Cards)
          ========================================================= -->
-    <section id="bab-5" class="scroll-mt-24 scroll-unfold space-y-7">
-      <div>
-        <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-          Perangan V • 6 / 8
-        </span>
-        <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-          5. Bab Kang Kudu Digatekake ing Basa Jawa
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Aspect 1: Unggah-ungguh Basa -->
-        <div class="serat-card tilt-card p-6 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="3">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <span class="inline-block px-3 py-1 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-3">
-              Bab 01
+            <span
+              class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+              Perangan III • Slide 4 / 8
             </span>
-            <h3 class="font-jawa-serif text-xl font-bold text-[#f5d76e] mb-3">Unggah-ungguh Basa</h3>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Gunakake ragam basa kang trep karo sasaran pamaca lan jenis medhiane. Umume artikel nggunakake <strong>Ngoko Alus</strong> (kanggo umum/enom) utawa <strong>Krama Lugu/Alus</strong> (kanggo acara resmi lan wong sepuh).
-            </p>
+            <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+              3. Jinis-jinis Artikel
+            </h2>
           </div>
-          <div class="mt-4 p-3 rounded-xl lontar-highlight text-xs text-[#f5d76e]">
-            ✦ Treping basa miturut pamaca & medhia
-          </div>
+          <span class="text-xs text-[#f5d76e] font-medium">Klik kertu kanggo nyorot jinis artikel ✦</span>
         </div>
 
-        <!-- Aspect 2: Paugeran Ejaan Basa Jawa -->
-        <div class="serat-card tilt-card p-6 flex flex-col justify-between border-t-4 border-t-[#a87ffb]">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-3">
-              Bab 02
-            </span>
-            <h3 class="font-jawa-serif text-xl font-bold text-[#f5d76e] mb-3">Paugeran Ejaan Basa Jawa</h3>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Gatekake panulisan aksara vokal lan konsonan kanthi bener, kayata mbedakake swara <strong>'a' jejeg</strong> lan <strong>'a' miring</strong>, sarta panulisan konsonan <strong>'dh'</strong> lan <strong>'th'</strong> (tuladha: <em>dhahar, bathik, kuthane</em>).
-            </p>
-          </div>
-          <div class="mt-4 p-3 rounded-xl lontar-highlight text-xs text-[#a87ffb]">
-            ✦ Tuladha: dhahar, bathik, kuthane
-          </div>
-        </div>
+        <!-- 5 Interactive 3D Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          <!-- 1. Dheskripsi -->
+          <article onclick="highlightJinisCard(this)"
+            class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 01</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Gegambaran
+                  Rinci</span>
+              </div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">1. Artikel Dheskripsi</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Nggambarake sawijining kahanan, papan, utawa prastawa kanthi rinci saengga pamaca kaya-kaya melu ndeleng
+                lan ngrasakake dhewe.
+              </p>
+            </div>
+          </article>
 
-        <!-- Aspect 3: Pilihan Tembung (Diksi) -->
-        <div class="serat-card tilt-card p-6 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
-          <div>
-            <span class="inline-block px-3 py-1 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-3">
-              Bab 03
-            </span>
-            <h3 class="font-jawa-serif text-xl font-bold text-[#f5d76e] mb-3">Pilihan Tembung (Diksi)</h3>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Pilih tembung kang mentes, efektif, lan gampang dimangerteni. Aja kakehan nggunakake tembung manca (asing) yen isih ana padhanane ing basa Jawa.
-            </p>
-          </div>
-          <div class="mt-4 p-3 rounded-xl lontar-highlight text-xs text-[#f5d76e]">
-            ✦ Ngutamakake padhanan tembung Jawa
-          </div>
+          <!-- 2. Narasi -->
+          <article onclick="highlightJinisCard(this)"
+            class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 02</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Urutan
+                  Wektu</span>
+              </div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">2. Artikel Narasi</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Nyritakake sawijining prastawa utawa kedadeyan kanthi urut adhedhasar urutan wektu (kronologis) saka
+                wiwitan nganti pungkasan.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3. Eksposisi -->
+          <article onclick="highlightJinisCard(this)"
+            class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 03</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Kawruh &
+                  Informasi</span>
+              </div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">3. Artikel Eksposisi</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Menehi informasi, katrangan, utawa kawruh tambahan marang pamaca kanthi jlentreh tanpa meksa pamaca.
+              </p>
+            </div>
+          </article>
+
+          <!-- 4. Argumentasi -->
+          <article onclick="highlightJinisCard(this)"
+            class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 04</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Data &
+                  Bukti</span>
+              </div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">4. Artikel Argumentasi</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Mbenerake utawa mbuktekake sawijining panemu kanthi dhasar data, alasan, lan bukti fakta kang kuwat.
+              </p>
+            </div>
+          </article>
+
+          <!-- 5. Persuasi -->
+          <article onclick="highlightJinisCard(this)"
+            class="jinis-card serat-card tilt-card p-4 sm:p-5 sm:col-span-2 lg:col-span-2 flex flex-col justify-between border-l-4 border-l-[#a87ffb]">
+            <div class="layer-z-15">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 05</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Pangajak
+                  Pamaca</span>
+              </div>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">5. Artikel Persuasi</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Ngajak, mbujuk, utawa narik kawigaten pamaca supaya gelem nindakake apa kang dikarepake dening penulis.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Ornamental Divider -->
-    <div class="flex items-center justify-center gap-4 opacity-80" aria-hidden="true">
-      <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-      <span class="text-[#f5d76e] text-lg">❖ ◈ ❖</span>
-      <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#a87ffb] to-[#d4af37]"></div>
-    </div>
-
     <!-- =========================================================
-         BAB 6: TULADHA CENGKORONGAN ARTIKEL (Royal Manuscript Blueprint)
+         SLIDE 5: 4. TRAP-TRAPAN NYERAT ARTIKEL (6 Langkah)
          ========================================================= -->
-    <section id="bab-6" class="scroll-mt-24 scroll-unfold space-y-7">
-      <div>
-        <span class="inline-block px-3.5 py-1 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-xs font-bold uppercase tracking-widest mb-2">
-          Perangan VI • 7 / 8
-        </span>
-        <h2 class="tilt-3d font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-          6. Tuladha Cengkorongan Artikel
-        </h2>
-      </div>
-
-      <!-- Stylized Royal Manuscript Card -->
-      <div class="serat-card p-6 sm:p-9 relative overflow-hidden border-2 border-[#d4af37]/65">
-        <!-- Corner Flourishes -->
-        <div class="absolute top-3 left-3 w-5 h-5 border-t-2 border-l-2 border-[#f5d76e] rounded-tl-md"></div>
-        <div class="absolute top-3 right-3 w-5 h-5 border-t-2 border-r-2 border-[#f5d76e] rounded-tr-md"></div>
-        <div class="absolute bottom-3 left-3 w-5 h-5 border-b-2 border-l-2 border-[#f5d76e] rounded-bl-md"></div>
-        <div class="absolute bottom-3 right-3 w-5 h-5 border-b-2 border-r-2 border-[#f5d76e] rounded-br-md"></div>
-
-        <!-- Tema & Irah-irahan Header -->
-        <div class="text-center pb-6 mb-6 border-b border-dashed border-[#d4af37]/45 space-y-2">
-          <span class="inline-block px-4 py-1 rounded-full bg-[#4c2875] border border-[#a87ffb]/50 text-[#f5d76e] text-xs font-bold uppercase tracking-widest">
-            TEMA ARTIKEL: Kabudayan & Basa Jawa
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="4">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
+        <div>
+          <span
+            class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+            Perangan IV • Slide 5 / 8
           </span>
-          <p class="text-xs uppercase tracking-widest text-[#a87ffb] font-bold pt-2">Irah-irahan (Judul)</p>
-          <h3 class="font-jawa-serif text-2xl sm:text-3xl font-extrabold text-[#f5d76e]">
-            "Nguri-uri Basa Jawa ing Era Digital"
-          </h3>
+          <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+            4. Trap-trapan Nyerat Artikel
+          </h2>
         </div>
 
-        <!-- Pambuka, Isi, Panutup Breakdown -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <!-- Pambuka -->
-          <div class="lontar-highlight p-5 space-y-2.5">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-[#d4af37] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">I</span>
-              <h4 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Pambuka</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+          <!-- Step 1 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">1</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nemtokake Tema</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Pilih topik kang lagi hangat dirembug utawa cedhak karo masyarakat (budaya, lingkungan, pendhidhikan).
+              </p>
             </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Kahanan basa Jawa ing jaman saiki kang wiwit jarang digunakake dening generasi mudha ing pasrawungan padinan.
-            </p>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 1 / 6
+            </div>
           </div>
 
-          <!-- Isi -->
-          <div class="lontar-highlight p-5 space-y-2.5">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-[#a87ffb] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">II</span>
-              <h4 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Isi</h4>
+          <!-- Step 2 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">2</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nemtokake Ancas</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Temtokake tujuan tulisan: apa kanggo menehi informasi, njlentrehake, utawa ngajak pamaca.
+              </p>
             </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Faktor penyebab lunturne basa Jawa lan cara nglestarekake lumantar media sosial (gawe konten kreatif ing TikTok, YouTube, utawa Instagram).
-            </p>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 2 / 6
+            </div>
           </div>
 
-          <!-- Panutup -->
-          <div class="lontar-highlight p-5 space-y-2.5">
-            <div class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-[#d4af37] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">III</span>
-              <h4 class="font-jawa-serif text-lg font-bold text-[#f5d76e]">Panutup</h4>
+          <!-- Step 3 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">3</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Ngumpulake Bahan</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Golek referensi saka buku, internet, wawancara narasumber, utawa observasi langsung.
+              </p>
             </div>
-            <p class="text-sm text-[#f4f0ea]/95 leading-relaxed">
-              Pangajak marang para mudha supaya bangga lan ora isin nggunakake basa Jawa minangka jati dhiri bangsa.
-            </p>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 3 / 6
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">4</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nyusun Cengkorongan</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Gawe kerangka garis gedhe isi artikel saka pambuka nganti panutup supaya urut.
+              </p>
+            </div>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 4 / 6
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">5</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Ngembangake Tulisan</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Tulis cengkorongan dadi paragraf kang wutuh nganggo basa lan ejaan Jawa kang bener.
+              </p>
+            </div>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 5 / 6
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
+            <div class="layer-z-15">
+              <div class="flex items-center gap-2.5 mb-2">
+                <span
+                  class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">6</span>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nyunting (Editing)</h3>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Waca maneh tulisan kanggo mbenerake salah ketik (typo) lan unggah-ungguh basa.
+              </p>
+            </div>
+            <div
+              class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
+              Tataran 6 / 6
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         DUDUTAN & PANUTUP (Closing Scroll Roller)
+         SLIDE 6: 5. BAB KANG KUDU DIGATEKAKE ING BASA JAWA
          ========================================================= -->
-    <section id="dudutan" class="scroll-mt-24 scroll-unfold space-y-8 pt-4">
-      <div class="serat-card px-6 py-10 sm:px-12 sm:py-12 text-center space-y-6 border-2 border-[#a87ffb]/50">
-        <span class="inline-block px-4 py-1 rounded-full bg-[#4c2875] border border-[#f5d76e]/60 text-[#f5d76e] text-xs font-bold uppercase tracking-[0.2em]">
-          DUDUTAN (KESIMPULAN) • 8 / 8
-        </span>
-
-        <blockquote class="font-jawa-serif text-lg sm:text-2xl font-bold text-[#f4f0ea] max-w-3xl mx-auto leading-relaxed">
-          "Nyerat artikel basa Jawa ora mung nglatih kaprigelan nulis lan mikir kritis, nanging uga dadi sarana nyata kanggo nguri-uri lan nglestarekake basa sarta budaya Jawa."
-        </blockquote>
-
-        <div class="h-[1px] w-48 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
-
-        <div class="space-y-2 pt-2">
-          <h2 class="tilt-3d font-serat-title text-3xl sm:text-5xl font-black text-3d-kencana tracking-wide">
-            MATUR SEMBAH NUWUN
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="5">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
+        <div>
+          <span
+            class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+            Perangan V • Slide 6 / 8
+          </span>
+          <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+            5. Bab Kang Kudu Digatekake ing Basa Jawa
           </h2>
-          <p class="font-jawa-serif italic text-sm sm:text-lg text-[#f4f0ea]/90 max-w-xl mx-auto">
-            "Cekap semanten atur kula, mbok bilih wonten lepatipun nyuwun agunging pangapunten."
-          </p>
         </div>
 
-        <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <span class="text-xs text-[#a87ffb] font-semibold">Disusun dening: <strong class="text-[#f5d76e]">Anggun Deswita Maharani</strong></span>
-          <a href="#sampul" class="px-4 py-1.5 rounded-full bg-[#2a1642] border border-[#d4af37]/60 text-xs font-bold text-[#f5d76e] hover:bg-[#d4af37] hover:text-[#0d0b12] transition">
-            ↑ Wani Bali menyang Sampul
-          </a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+          <!-- Aspect 1: Unggah-ungguh Basa -->
+          <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
+            <div class="layer-z-15">
+              <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
+                Bab 01
+              </span>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Unggah-ungguh Basa</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Gunakake ragam basa kang trep karo sasaran pamaca lan jenis medhiane. Umume artikel nggunakake
+                <strong>Ngoko Alus</strong> (kanggo umum/enom) utawa <strong>Krama Lugu/Alus</strong> (kanggo acara
+                resmi lan wong sepuh).
+              </p>
+            </div>
+            <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#f5d76e] layer-z-15">
+              ✦ Treping basa miturut pamaca & medhia
+            </div>
+          </div>
+
+          <!-- Aspect 2: Paugeran Ejaan Basa Jawa -->
+          <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#a87ffb]">
+            <div class="layer-z-15">
+              <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
+                Bab 02
+              </span>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Paugeran Ejaan Basa Jawa</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Gatekake panulisan aksara vokal lan konsonan kanthi bener, kayata mbedakake swara <strong>'a'
+                  jejeg</strong> lan <strong>'a' miring</strong>, sarta panulisan konsonan <strong>'dh'</strong> lan
+                <strong>'th'</strong> (tuladha: <em>dhahar, bathik, kuthane</em>).
+              </p>
+            </div>
+            <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#a87ffb] layer-z-15">
+              ✦ Tuladha: dhahar, bathik, kuthane
+            </div>
+          </div>
+
+          <!-- Aspect 3: Pilihan Tembung (Diksi) -->
+          <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
+            <div class="layer-z-15">
+              <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
+                Bab 03
+              </span>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Pilihan Tembung (Diksi)</h3>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Pilih tembung kang mentes, efektif, lan gampang dimangerteni. Aja kakehan nggunakake tembung manca
+                (asing) yen isih ana padhanane ing basa Jawa.
+              </p>
+            </div>
+            <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#f5d76e] layer-z-15">
+              ✦ Ngutamakake padhanan tembung Jawa
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Bottom Scroll Roller Cap -->
-      <div class="scroll-roller w-full"></div>
+    <!-- =========================================================
+         SLIDE 7: 6. TULADHA CENGKORONGAN ARTIKEL
+         ========================================================= -->
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="6">
+      <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
+        <div>
+          <span
+            class="inline-block px-3 py-0.5 rounded-full bg-[#2a1642] border border-[#a87ffb]/50 text-[#a87ffb] text-[11px] font-bold uppercase tracking-widest mb-1">
+            Perangan VI • Slide 7 / 8
+          </span>
+          <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
+            6. Tuladha Cengkorongan Artikel
+          </h2>
+        </div>
+
+        <!-- Stylized Royal Manuscript Card -->
+        <div class="serat-card tilt-card p-5 sm:p-7 relative overflow-hidden border-2 border-[#d4af37]/65">
+          <!-- Corner Flourishes -->
+          <div class="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-[#f5d76e] rounded-tl-md"></div>
+          <div class="absolute top-2.5 right-2.5 w-4 h-4 border-t-2 border-r-2 border-[#f5d76e] rounded-tr-md"></div>
+          <div class="absolute bottom-2.5 left-2.5 w-4 h-4 border-b-2 border-l-2 border-[#f5d76e] rounded-bl-md"></div>
+          <div class="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-[#f5d76e] rounded-br-md"></div>
+
+          <!-- Tema & Irah-irahan Header -->
+          <div class="text-center pb-4 mb-5 border-b border-dashed border-[#d4af37]/45 space-y-1.5 layer-z-15">
+            <span
+              class="inline-block px-3.5 py-1 rounded-full bg-[#4c2875] border border-[#a87ffb]/50 text-[#f5d76e] text-[11px] font-bold uppercase tracking-widest">
+              TEMA ARTIKEL: Kabudayan & Basa Jawa
+            </span>
+            <p class="text-[11px] uppercase tracking-widest text-[#a87ffb] font-bold pt-1">Irah-irahan (Judul)</p>
+            <h3 class="font-jawa-serif text-xl sm:text-3xl font-extrabold text-[#f5d76e]">
+              "Nguri-uri Basa Jawa ing Era Digital"
+            </h3>
+          </div>
+
+          <!-- Pambuka, Isi, Panutup Breakdown -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 layer-z-15">
+            <!-- Pambuka -->
+            <div class="lontar-highlight p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-6 h-6 rounded-lg bg-[#d4af37] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">I</span>
+                <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Pambuka</h4>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Kahanan basa Jawa ing jaman saiki kang wiwit jarang digunakake dening generasi mudha ing pasrawungan
+                padinan.
+              </p>
+            </div>
+
+            <!-- Isi -->
+            <div class="lontar-highlight p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-6 h-6 rounded-lg bg-[#a87ffb] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">II</span>
+                <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Isi</h4>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Faktor penyebab lunturne basa Jawa lan cara nglestarekake lumantar media sosial (gawe konten kreatif ing
+                TikTok, YouTube, utawa Instagram).
+              </p>
+            </div>
+
+            <!-- Panutup -->
+            <div class="lontar-highlight p-4 space-y-2">
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-6 h-6 rounded-lg bg-[#d4af37] text-[#0d0b12] font-serat-title font-black text-xs flex items-center justify-center">III</span>
+                <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Panutup</h4>
+              </div>
+              <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
+                Pangajak marang para mudha supaya bangga lan ora isin nggunakake basa Jawa minangka jati dhiri bangsa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 8: DUDUTAN & PANUTUP
+         ========================================================= -->
+    <section class="slide-3d next-pos px-6 sm:px-12" data-slide="7">
+      <div class="w-full max-w-4xl mx-auto">
+        <div class="scroll-roller w-full mb-3 sm:mb-4"></div>
+
+        <div
+          class="serat-card tilt-card px-6 py-7 sm:px-12 sm:py-10 text-center space-y-4 sm:space-y-5 border-2 border-[#a87ffb]/55">
+          <div style="transform-style: preserve-3d;" class="space-y-4">
+            <span
+              class="layer-z-15 inline-block px-4 py-1 rounded-full bg-[#4c2875] border border-[#f5d76e]/60 text-[#f5d76e] text-[11px] font-bold uppercase tracking-[0.2em]">
+              DUDUTAN (KESIMPULAN) • Slide 8 / 8
+            </span>
+
+            <blockquote
+              class="layer-z-15 font-jawa-serif text-base sm:text-xl md:text-2xl font-bold text-[#f4f0ea] max-w-3xl mx-auto leading-relaxed">
+              "Nyerat artikel basa Jawa ora mung nglatih kaprigelan nulis lan mikir kritis, nanging uga dadi sarana
+              nyata kanggo nguri-uri lan nglestarekake basa sarta budaya Jawa."
+            </blockquote>
+
+            <div class="h-[1px] w-48 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
+
+            <div class="space-y-1.5 pt-1">
+              <h2 class="font-serat-title text-2xl sm:text-4xl md:text-5xl font-black text-3d-kencana tracking-wide">
+                MATUR SEMBAH NUWUN
+              </h2>
+              <p class="layer-z-15 font-jawa-serif italic text-xs sm:text-base text-[#f4f0ea]/90 max-w-xl mx-auto">
+                "Cekap semanten atur kula, mbok bilih wonten lepatipun nyuwun agunging pangapunten."
+              </p>
+            </div>
+
+            <div class="layer-z-25 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <span class="text-xs text-[#a87ffb] font-semibold">Disusun dening: <strong class="text-[#f5d76e]">Anggun
+                  Deswita Maharani</strong></span>
+              <button onclick="goToSlide(0)"
+                class="px-5 py-2 rounded-full bg-gradient-to-r from-[#2a1642] to-[#4c2875] border border-[#f5d76e]/70 text-xs font-bold text-[#f5d76e] hover:from-[#d4af37] hover:to-[#f5d76e] hover:text-[#0d0b12] transition shadow-lg">
+                ↺ Bali menyang Slide 1
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-roller w-full mt-3 sm:mt-4"></div>
+      </div>
     </section>
 
   </main>
 
+  <!-- =========================================================
+       BOTTOM 3D DECK NAVIGATION BAR
+       ========================================================= -->
+  <footer class="fixed bottom-0 left-0 right-0 z-40 px-6 sm:px-10 pb-2.5">
+    <div
+      class="max-w-4xl mx-auto bg-[#15111e]/90 border border-[#d4af37]/40 rounded-2xl px-3 sm:px-5 py-2 backdrop-blur-md shadow-2xl flex items-center justify-between gap-2">
+      <!-- Prev Button -->
+      <button id="prev-btn" onclick="prevSlide()"
+        class="px-3 sm:px-4 py-1.5 rounded-xl bg-[#2a1642] hover:bg-[#4c2875] disabled:opacity-40 disabled:pointer-events-none border border-[#d4af37]/45 text-xs sm:text-sm font-bold text-[#f4f0ea] flex items-center gap-1.5 transition">
+        <span>←</span>
+        <span class="hidden sm:inline">Sadurunge</span>
+      </button>
+
+      <!-- Clickable Slide Indicators (1 - 8) -->
+      <div id="slide-dots" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-0.5">
+        <button onclick="goToSlide(0)" data-dot="0"
+          class="dot-indicator active w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 1: Sampul">1</button>
+        <button onclick="goToSlide(1)" data-dot="1"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 2: Pangerten">2</button>
+        <button onclick="goToSlide(2)" data-dot="2"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 3: Struktur">3</button>
+        <button onclick="goToSlide(3)" data-dot="3"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 4: Jinis Artikel">4</button>
+        <button onclick="goToSlide(4)" data-dot="4"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 5: Trap-trapan">5</button>
+        <button onclick="goToSlide(5)" data-dot="5"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 6: Bab Digatekake">6</button>
+        <button onclick="goToSlide(6)" data-dot="6"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 7: Tuladha">7</button>
+        <button onclick="goToSlide(7)" data-dot="7"
+          class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
+          title="Slide 8: Dudutan & Panutup">8</button>
+      </div>
+
+      <!-- Next Button -->
+      <button id="next-btn" onclick="nextSlide()"
+        class="px-3 sm:px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#f5d76e] hover:brightness-110 disabled:opacity-40 disabled:pointer-events-none text-xs sm:text-sm font-extrabold text-[#0d0b12] flex items-center gap-1.5 shadow transition">
+        <span class="hidden sm:inline">Sabanjure</span>
+        <span>→</span>
+      </button>
+    </div>
+  </footer>
+
   <script>
-    // 1. Scroll Progress Bar & Active Bookmark Section Highlight
-    const progressBar = document.getElementById('scroll-progress');
-    const sections = document.querySelectorAll('main section[id]');
-    const bookmarkLinks = document.querySelectorAll('.bookmark-item');
+    // =========================================================
+    // 1. 3D SLIDE NAVIGATION ENGINE
+    // =========================================================
+    const slides = Array.from(document.querySelectorAll('.slide-3d'));
+    const dots = Array.from(document.querySelectorAll('.dot-indicator'));
+    const counterBadge = document.getElementById('slide-counter-badge');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
 
-    function updateScrollUI() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-      progressBar.style.width = `${scrollPercent}%`;
+    let currentSlide = 0;
+    const totalSlides = slides.length;
 
-      let currentId = 'sampul';
-      sections.forEach(sec => {
-        const top = sec.offsetTop - 220;
-        if (scrollTop >= top) {
-          currentId = sec.getAttribute('id');
+    function updateDeck() {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('active', 'next-pos', 'prev-pos');
+        if (idx === currentSlide) {
+          slide.classList.add('active');
+        } else if (idx > currentSlide) {
+          slide.classList.add('next-pos');
+        } else {
+          slide.classList.add('prev-pos');
         }
       });
 
-      bookmarkLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('data-target') === currentId);
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
       });
+
+      counterBadge.textContent = `Slide ${currentSlide + 1} / ${totalSlides}`;
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
     }
 
-    window.addEventListener('scroll', updateScrollUI, { passive: true });
-    window.addEventListener('DOMContentLoaded', updateScrollUI);
-
-    // 2. Scroll-Unfold Reveal Animation (IntersectionObserver)
-    const unfoldObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.scroll-unfold').forEach(el => unfoldObserver.observe(el));
-
-    // 3. Interactive Filter for Bab 3: Jinis-jinis Artikel
-    function filterJinis(category) {
-      const buttons = document.querySelectorAll('.jinis-filter-btn');
-      const cards = document.querySelectorAll('.jinis-card');
-
-      buttons.forEach(btn => {
-        const isMatch = btn.getAttribute('data-filter') === category;
-        if (isMatch) {
-          btn.className = 'jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-[#f5d76e] bg-gradient-to-r from-[#d4af37] to-[#f5d76e] text-[#0d0b12] shadow transition';
-        } else {
-          btn.className = 'jinis-filter-btn px-4 py-1.5 rounded-full text-xs font-semibold border border-[#d4af37]/40 bg-[#1c132b] text-[#f4f0ea] hover:border-[#f5d76e] transition';
-        }
-      });
-
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-jinis') === category) {
-          card.style.display = 'flex';
-          card.style.opacity = '1';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+      currentSlide = index;
+      updateDeck();
     }
 
-    // 4. Subtle 3D Perspective Tilt on Headings & Cards
-    document.querySelectorAll('.tilt-3d').forEach(heading => {
-      heading.addEventListener('mousemove', (e) => {
-        const rect = heading.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        heading.style.transform = `perspective(700px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) translateZ(10px)`;
-      });
-      heading.addEventListener('mouseleave', () => {
-        heading.style.transform = 'perspective(700px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
-      });
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateDeck();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateDeck();
+      }
+    }
+
+    // Keyboard Arrow & Spacebar Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        goToSlide(totalSlides - 1);
+      }
     });
 
+    // Touch Swipe Navigation for Mobile/Tablet
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      const dy = e.changedTouches[0].screenY - touchStartY;
+      // Trigger slide switch only on deliberate horizontal swipe
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        if (dx < 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+
+    // =========================================================
+    // 2. REAL-TIME 3D PARALLAX TILT ON CARDS
+    // =========================================================
     document.querySelectorAll('.tilt-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = `perspective(900px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+        const isSelected = card.classList.contains('selected-jinis');
+        const extraZ = isSelected ? 18 : 6;
+        card.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(${extraZ}px)`;
       });
+
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+        if (card.classList.contains('selected-jinis')) {
+          card.style.transform = 'perspective(900px) translateZ(18px) scale(1.02)';
+        } else {
+          card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+        }
       });
+    });
+
+    // Interactive Card Highlight on Slide 4 (Jinis-jinis Artikel)
+    function highlightJinisCard(clickedCard) {
+      const allJinis = document.querySelectorAll('.jinis-card');
+      const alreadySelected = clickedCard.classList.contains('selected-jinis');
+      allJinis.forEach(c => {
+        c.classList.remove('selected-jinis');
+        c.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
+      });
+      if (!alreadySelected) {
+        clickedCard.classList.add('selected-jinis');
+        clickedCard.style.transform = 'perspective(900px) translateZ(18px) scale(1.02)';
+      }
+    }
+
+    // =========================================================
+    // 3. FULLSCREEN TOGGLE
+    // =========================================================
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => { });
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => { });
+      }
+    }
+
+    // =========================================================
+    // 4. 3D FLOATING GOLD & PURPLE PARTICLES CANVAS
+    // =========================================================
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    class Particle3D {
+      constructor() {
+        this.reset(true);
+      }
+      reset(initial = false) {
+        this.x = (Math.random() - 0.5) * canvas.width * 1.4;
+        this.y = (Math.random() - 0.5) * canvas.height * 1.4;
+        this.z = initial ? Math.random() * 900 + 100 : 1000;
+        this.vz = -(Math.random() * 0.9 + 0.35);
+        this.vx = (Math.random() - 0.5) * 0.25;
+        this.vy = -(Math.random() * 0.25 + 0.08);
+        this.size = Math.random() * 2.6 + 1.1;
+        this.isGold = Math.random() > 0.38;
+      }
+      update() {
+        this.z += this.vz;
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.z <= 20) this.reset(false);
+      }
+      draw() {
+        const focal = 420;
+        const scale = focal / (focal + this.z);
+        const sx = canvas.width / 2 + this.x * scale;
+        const sy = canvas.height / 2 + this.y * scale;
+        const r = Math.max(0.5, this.size * scale * 1.6);
+        const alpha = Math.min(0.85, (1 - this.z / 1000) * 0.85);
+
+        ctx.beginPath();
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = this.isGold
+          ? `rgba(245, 215, 110, ${alpha})`
+          : `rgba(168, 127, 251, ${alpha})`;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      resizeCanvas();
+      const count = window.innerWidth < 640 ? 45 : 85;
+      particles = Array.from({ length: count }, () => new Particle3D());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('load', () => {
+      updateDeck();
+      initParticles();
+      animateParticles();
     });
   </script>
 </body>
+
 </html>
