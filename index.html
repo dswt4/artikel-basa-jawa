@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Presentasi 3D — Nyerat Artikel Basa Jawa</title>
+  <title>Presentasi 3D — Kesenian Emprak Khas Jepara</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
@@ -86,7 +86,6 @@
     }
 
     @media (min-width: 768px) {
-
       .parang-edge-left,
       .parang-edge-right {
         width: 28px;
@@ -143,7 +142,6 @@
         filter 0.65s ease;
     }
 
-    /* Active slide in center */
     .slide-3d.active {
       opacity: 1;
       pointer-events: auto;
@@ -152,7 +150,6 @@
       z-index: 20;
     }
 
-    /* Slide queued to the right (next) */
     .slide-3d.next-pos {
       opacity: 0;
       transform: translate3d(42%, 0, -320px) rotateY(-42deg) scale(0.84);
@@ -160,7 +157,6 @@
       z-index: 10;
     }
 
-    /* Slide queued to the left (prev) */
     .slide-3d.prev-pos {
       opacity: 0;
       transform: translate3d(-42%, 0, -320px) rotateY(42deg) scale(0.84);
@@ -200,7 +196,6 @@
       transform-style: preserve-3d;
     }
 
-    /* 3D Layer Pop inside cards */
     .layer-z-15 {
       transform: translateZ(15px);
     }
@@ -209,7 +204,6 @@
       transform: translateZ(25px);
     }
 
-    /* Royal Scroll Roller Cap */
     .scroll-roller {
       height: 10px;
       background: linear-gradient(90deg, #4c2875 0%, #d4af37 18%, #f5d76e 50%, #d4af37 82%, #4c2875 100%);
@@ -217,7 +211,6 @@
       box-shadow: 0 4px 16px rgba(212, 175, 55, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.55);
     }
 
-    /* Active Jenis Card Highlight */
     .jinis-card {
       cursor: pointer;
     }
@@ -229,7 +222,6 @@
       transform: perspective(900px) translateZ(18px) scale(1.02);
     }
 
-    /* Slide Indicator Pill */
     .dot-indicator {
       transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -242,7 +234,6 @@
       box-shadow: 0 0 16px rgba(212, 175, 55, 0.65);
     }
 
-    /* Custom thin internal scroll ONLY if tiny screen needs it */
     .slide-inner-scroll {
       max-height: calc(100dvh - 132px);
       overflow-y: auto;
@@ -278,12 +269,12 @@
       <button onclick="goToSlide(0)" class="flex items-center gap-2.5 text-left group focus:outline-none">
         <div
           class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4c2875] to-[#2a1642] border border-[#d4af37] flex items-center justify-center shadow group-hover:scale-105 transition">
-          <span class="font-serat-title text-[#f5d76e] font-black text-sm">ꦄ</span>
+          <span class="font-serat-title text-[#f5d76e] font-black text-sm">ꦌ</span>
         </div>
         <div>
-          <span class="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#a87ffb] font-bold">Presentasi
-            3D • Serat Pasinaon</span>
-          <span class="font-jawa-serif text-xs sm:text-sm font-bold text-[#f4f0ea]">Nyerat Artikel Basa Jawa</span>
+          <span class="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-[#a87ffb] font-bold">Artikel
+            Kabudayan • Jepara</span>
+          <span class="font-jawa-serif text-xs sm:text-sm font-bold text-[#f4f0ea]">Kesenian Emprak Jepara</span>
         </div>
       </button>
 
@@ -337,18 +328,18 @@
           <div class="relative z-10 flex flex-col items-center" style="transform-style: preserve-3d;">
             <span
               class="layer-z-15 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#4c2875]/80 border border-[#a87ffb]/65 text-[#f5d76e] text-[11px] sm:text-xs font-bold tracking-[0.22em] uppercase mb-4 sm:mb-5 shadow-lg">
-              <span>◈</span> MATERI PASINAON BASA JAWA <span>◈</span>
+              <span>◈</span> ARTIKEL KABUDAYAN KHAS JEPARA <span>◈</span>
             </span>
 
             <!-- 3D Extruded Main Title -->
             <h1
               class="font-serat-title text-3xl sm:text-5xl md:text-6xl font-black tracking-wide text-3d-kencana leading-tight mb-4">
-              NYERAT ARTIKEL<br />BASA JAWA
+              KESENIAN EMPRAK<br />TEATER KHAS JEPARA
             </h1>
 
             <p
               class="layer-z-15 font-jawa-serif italic text-sm sm:text-xl text-[#f4f0ea]/95 max-w-2xl mb-6 leading-relaxed">
-              "Pangerten, Struktur, Jinis, lan Trap-trapan Nyerat Artikel"
+              "Pangerten, Sejarah, Ciri Khas Pagelaran, lan Upaya Nglestarekake Teater Rakyat sing Meh Cures"
             </p>
 
             <!-- Author Royal Seal -->
@@ -362,7 +353,7 @@
             <!-- Start Presentation CTA -->
             <button onclick="nextSlide()"
               class="layer-z-25 px-7 py-3 rounded-full bg-gradient-to-r from-[#d4af37] via-[#f5d76e] to-[#d4af37] text-[#0d0b12] font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-[0_0_25px_rgba(212,175,55,0.55)] hover:scale-105 active:scale-95 transition flex items-center gap-2">
-              <span>Miwiti Presentasi</span>
+              <span>Miwiti Maca Artikel</span>
               <span class="text-base">→</span>
             </button>
           </div>
@@ -373,7 +364,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 2: 1. PANGERTEN ARTIKEL (PENGERTIAN)
+         SLIDE 2: 1. PANGERTEN KESENIAN EMPRAK
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="1">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
@@ -384,24 +375,24 @@
               Perangan I • Slide 2 / 8
             </span>
             <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-              1. Pangerten Artikel (Pengertian)
+              1. Pangerten Kesenian Emprak
             </h2>
           </div>
         </div>
 
-        <!-- Definisi Artikel Banner -->
+        <!-- Definisi Emprak Banner -->
         <div class="serat-card tilt-card p-4 sm:p-6 border-l-4 border-l-[#f5d76e]">
           <div class="flex items-start gap-4 layer-z-15">
             <div
               class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-xl sm:text-2xl flex items-center justify-center shrink-0 shadow-lg">
-              A
+              E
             </div>
             <div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1">Definisi Artikel</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1">Apa Kuwi Kesenian Emprak?</h3>
               <p class="text-sm sm:text-base text-[#f4f0ea] leading-relaxed">
-                <strong>Artikel</strong> yaiku karangan nyata (<em>non-fiksi</em>) kang jangkep kanthi dawa tinamtu,
-                digawe kanggo disebarake lumantar <strong>ariwarti</strong> (koran), <strong>kalawarti</strong>
-                (majalah), utawa <strong>medhia online</strong>.
+                <strong>Emprak</strong> yaiku kesenian teater rakyat tradisional khas <strong>Kabupaten Jepara</strong>
+                kang ngrembaka ing tlatah Jepara sisih lor (Kecamatan Bangsri lan Pakisaji). Kesenian iki minangka
+                gabungan antarane <strong>seni drama (lakon), joged (tari), tembang Jawa, lan dhagelan</strong>.
               </p>
             </div>
           </div>
@@ -409,40 +400,40 @@
 
         <!-- Ancas & Ciri-ciri Dual Pillars -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          <!-- Ancas (Tujuan) -->
+          <!-- Ancas (Fungsi & Tujuan) -->
           <div class="serat-card tilt-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center justify-between border-b border-[#d4af37]/30 pb-2 layer-z-15">
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Ancas (Tujuan) Nulis Artikel</h3>
-              <span class="px-2.5 py-0.5 rounded-lg bg-[#4c2875] text-[#f4f0ea] text-[11px] font-bold">4 Tujuan</span>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Ancas & Fungsi Pagelaran</h3>
+              <span class="px-2.5 py-0.5 rounded-lg bg-[#4c2875] text-[#f4f0ea] text-[11px] font-bold">4 Fungsi</span>
             </div>
             <ul class="space-y-2 text-xs sm:text-sm text-[#f4f0ea]/95 layer-z-15">
               <li class="flex items-start gap-2.5">
                 <span
                   class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
-                <span>Ngandharake gagasan lan kasunyatan (fakta).</span>
+                <span>Sarana dakwah penyebaran agama Islam ing pesisir lor Jawa.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span
                   class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
-                <span>Ngyakinake pamaca marang sawijining panemu.</span>
+                <span>Menehi pitutur becik lan tuntunan moral marang masyarakat tani.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span
                   class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
-                <span>Nggulawentah (mendidik) lan menehi kawruh anyar.</span>
+                <span>Panglipur warga nalika ana hajatan utawa sedekah bumi.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span
                   class="w-5 h-5 rounded-full bg-[#d4af37]/20 border border-[#d4af37] text-[#f5d76e] text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
-                <span>Nyenengake utawa nglipur pamaca.</span>
+                <span>Sarana kritik sosial lan ngrembug masalah urip padinan.</span>
               </li>
             </ul>
           </div>
 
-          <!-- Ciri-ciri Utama -->
+          <!-- Titikan Utama Emprak -->
           <div class="serat-card tilt-card p-4 sm:p-5 space-y-3">
             <div class="flex items-center justify-between border-b border-[#a87ffb]/30 pb-2 layer-z-15">
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#a87ffb]">Ciri-ciri Utama Artikel</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#a87ffb]">Titikan (Ciri) Utama Emprak</h3>
               <span
                 class="px-2.5 py-0.5 rounded-lg bg-[#d4af37]/20 border border-[#d4af37]/50 text-[#f5d76e] text-[11px] font-bold">4
                 Titikan</span>
@@ -450,19 +441,19 @@
             <ul class="space-y-2 text-xs sm:text-sm text-[#f4f0ea]/95 layer-z-15">
               <li class="flex items-start gap-2.5">
                 <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-                <span>Adhedhasar kasunyatan (fakta), dudu khayalan.</span>
+                <span>Kesenian rakyat kanthi swasana gayeng, prasaja, lan komunikatif.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-                <span>Isine cekak aos (padat, ringkes, lan jelas).</span>
+                <span>Lakon dibungkus nganggo dhagelan lucu sing ngocok weteng.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-                <span>Nggunakake basa kang komunikatif lan gampang dimangerteni.</span>
+                <span>Nggunakake basa Jawa padinan khas pesisir Jepara.</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <span class="text-[#f5d76e] font-bold mt-0.5">✦</span>
-                <span>Sipate objektif lan logis.</span>
+                <span>Nalika jaman keemasane bisa pentas sewengi natas kaya wayang kulit.</span>
               </li>
             </ul>
           </div>
@@ -471,7 +462,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 3: 2. STRUKTUR ARTIKEL BASA JAWA
+         SLIDE 3: 2. SEJARAH LAN ASAL-USUL JENENG EMPRAK
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="2">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
@@ -481,74 +472,76 @@
             Perangan II • Slide 3 / 8
           </span>
           <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-            2. Struktur Artikel Basa Jawa
+            2. Sejarah & Asal-Usul Jeneng Emprak
           </h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          <!-- 1. Irah-irahan -->
+          <!-- 1. Jaman Wali & Dakwah -->
           <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#f5d76e]">
             <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
               <div class="flex items-center gap-2.5">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">01</span>
-                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Irah-irahan (Judul)</h3>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Wiwitan Jaman Wali</h3>
               </div>
               <span
-                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Kawitan</span>
+                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Dakwah</span>
             </div>
             <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
-              Makili tema utawa inti isi artikel. Digawe cekak, jelas, lan narik kawigaten pamaca supaya gelem maca
-              isine.
+              Miturut cathetan sejarah, Emprak wis ana wiwit jaman penyebaran agama Islam dening para wali lan ulama
+              ing pesisir lor Jawa minangka medhia pitutur becik.
             </p>
           </div>
 
-          <!-- 2. Pambuka -->
+          <!-- 2. Sesambungan Crita Panji -->
           <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#a87ffb]">
             <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
               <div class="flex items-center gap-2.5">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow">02</span>
-                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Pambuka (Pendahuluan)</h3>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Versi Crita Panji</h3>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Latar
-                Belakang</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Crita
+                Rakyat</span>
             </div>
             <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
-              Ngandharake latar belakang masalah, gambaran umum topik, utawa gagasan pokok kang bakal dirembug.
+              Saliyane sarana dakwah, ana uga versi crita rakyat kang nyambungake kesenian Emprak karo lakon Panji Inu
+              Kertapati lan Dewi Candrakirana.
             </p>
           </div>
 
-          <!-- 3. Isi -->
+          <!-- 3. Swara Kenthongan "Prak... Prak..." -->
           <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#f5d76e]">
             <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
               <div class="flex items-center gap-2.5">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">03</span>
-                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Isi (Batang Tubuh)</h3>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Swara "Prak... Prak..."</h3>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Pokok
-                Andharan</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Asal
+                Jeneng</span>
             </div>
             <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
-              Njlentrehake pokok-pokok pikiran kanthi rinci, sistematis, lan didhukung dening fakta, data, utawa tuladha
-              nyata.
+              Nalika adegan pambuka, ana pemain sing obahe ora kompak banjur dithuthuk kenthongan muni <em>"prak...
+                prak..."</em>. Saka swara iku jeneng <strong>Emprak</strong> lair.
             </p>
           </div>
 
-          <!-- 4. Panutup / Dudutan -->
+          <!-- 4. Jaman Keemasan (1950–1990-an) -->
           <div class="serat-card tilt-card p-5 relative border-t-4 border-t-[#a87ffb]">
             <div class="flex items-center justify-between gap-2 mb-2 layer-z-15">
               <div class="flex items-center gap-2.5">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow">04</span>
-                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Panutup / Dudutan</h3>
+                <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e]">Jaman Keemasan</h3>
               </div>
               <span
-                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">Kesimpulan</span>
+                class="px-2.5 py-0.5 rounded-full bg-[#4c2875] text-[#f4f0ea] text-[11px] font-semibold">1950–1990an</span>
             </div>
             <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed layer-z-15">
-              Ngamot ringkesan saka andharan isi ing ndhuwur, sarta saran, solusi, utawa pangarep-arep saka penulis.
+              Ing era 1950 nganti 1990-an, Emprak dadi tontonan favorit warga Jepara saben ana sedekah bumi utawa
+              hajatan nganti sewengi natas.
             </p>
           </div>
         </div>
@@ -556,7 +549,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 4: 3. JINIS-JINIS ARTIKEL (5 Interactive 3D Cards)
+         SLIDE 4: 3. CIRI KHAS PAGELARAN EMPRAK (5 Interactive Cards)
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="3">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
@@ -567,92 +560,96 @@
               Perangan III • Slide 4 / 8
             </span>
             <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-              3. Jinis-jinis Artikel
+              3. Ciri Khas Pagelaran Emprak
             </h2>
           </div>
-          <span class="text-xs text-[#f5d76e] font-medium">Klik kertu kanggo nyorot jinis artikel ✦</span>
+          <span class="text-xs text-[#f5d76e] font-medium">Klik kertu kanggo nyorot unsur pagelaran ✦</span>
         </div>
 
         <!-- 5 Interactive 3D Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-          <!-- 1. Dheskripsi -->
+          <!-- 1. Busana & Riasan -->
           <article onclick="highlightJinisCard(this)"
             class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center justify-between mb-2">
-                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 01</span>
-                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Gegambaran
-                  Rinci</span>
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">UNSUR 01</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Prasaja &
+                  Lucu</span>
               </div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">1. Artikel Dheskripsi</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">1. Busana & Riasan</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Nggambarake sawijining kahanan, papan, utawa prastawa kanthi rinci saengga pamaca kaya-kaya melu ndeleng
-                lan ngrasakake dhewe.
+                Pemain nganggo sarung, rompi warna-warni, lan topi bayi. Riasan praupane digawe lucu kaya punakawan
+                utawa badhut kanggo narik kawigaten penonton.
               </p>
             </div>
           </article>
 
-          <!-- 2. Narasi -->
+          <!-- 2. Tetabuhan / Alat Musik -->
           <article onclick="highlightJinisCard(this)"
             class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center justify-between mb-2">
-                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 02</span>
-                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Urutan
-                  Wektu</span>
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">UNSUR 02</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Musik
+                  Tradisional</span>
               </div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">2. Artikel Narasi</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">2. Tetabuhan Pangiring</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Nyritakake sawijining prastawa utawa kedadeyan kanthi urut adhedhasar urutan wektu (kronologis) saka
-                wiwitan nganti pungkasan.
+                Diiringi alat musik tradisional kayata kendhang, terbang (rebana), kenthongan, kethipung, gong, lan
+                saron sing nambah swasana gayeng.
               </p>
             </div>
           </article>
 
-          <!-- 3. Eksposisi -->
+          <!-- 3. Lakon & Pitutur -->
           <article onclick="highlightJinisCard(this)"
             class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center justify-between mb-2">
-                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 03</span>
-                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Kawruh &
-                  Informasi</span>
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">UNSUR 03</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Urip
+                  Padinan</span>
               </div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">3. Artikel Eksposisi</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">3. Crita & Pitutur</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Menehi informasi, katrangan, utawa kawruh tambahan marang pamaca kanthi jlentreh tanpa meksa pamaca.
+                Lakon dijupuk saka kahanan urip saben dina, kayata masalah kulawarga, pasulayan tangga, nganti kritik
+                sosial kang kebak pitutur luhur.
               </p>
             </div>
           </article>
 
-          <!-- 4. Argumentasi -->
+          <!-- 4. Joged & Tembang Jawa -->
           <article onclick="highlightJinisCard(this)"
             class="jinis-card serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center justify-between mb-2">
-                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 04</span>
-                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Data &
-                  Bukti</span>
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">UNSUR 04</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Adegan
+                  Pambuka</span>
               </div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">4. Artikel Argumentasi</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">4. Joged & Tembang</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Mbenerake utawa mbuktekake sawijining panemu kanthi dhasar data, alasan, lan bukti fakta kang kuwat.
+                Ing wiwitan pentas, para pemain padha joged lan nembang kanthi kompak sadurunge mlebu menyang inti lakon
+                crita.
               </p>
             </div>
           </article>
 
-          <!-- 5. Persuasi -->
+          <!-- 5. Dhagelan (Lawakan) -->
           <article onclick="highlightJinisCard(this)"
             class="jinis-card serat-card tilt-card p-4 sm:p-5 sm:col-span-2 lg:col-span-2 flex flex-col justify-between border-l-4 border-l-[#a87ffb]">
             <div class="layer-z-15">
               <div class="flex items-center justify-between mb-2">
-                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">JINIS 05</span>
-                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Pangajak
-                  Pamaca</span>
+                <span class="font-serat-title text-xs font-black text-[#a87ffb] tracking-widest">UNSUR 05</span>
+                <span class="px-2 py-0.5 rounded bg-[#4c2875]/80 text-[#f5d76e] text-[10px] font-semibold">Ciri Utama
+                  Emprak</span>
               </div>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">5. Artikel Persuasi</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-1.5">5. Dhagelan Segar &
+                Komunikatif</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Ngajak, mbujuk, utawa narik kawigaten pamaca supaya gelem nindakake apa kang dikarepake dening penulis.
+                Saben adegan tansah diselingi banyolan lan dhagelan spontan antarane pemain lan penonton, saengga pesan
+                moral gampang ditampa dening masyarakat.
               </p>
             </div>
           </article>
@@ -661,7 +658,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 5: 4. TRAP-TRAPAN NYERAT ARTIKEL (6 Langkah)
+         SLIDE 5: 4. KAHANAN SAIKI & UPAYA PELESTARIAN (6 Poin)
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="4">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
@@ -671,116 +668,117 @@
             Perangan IV • Slide 5 / 8
           </span>
           <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-            4. Trap-trapan Nyerat Artikel
+            4. Kahanan Saiki & Upaya Pelestarian
           </h2>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
-          <!-- Step 1 -->
+          <!-- Point 1 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">1</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nemtokake Tema</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Sansaya Surut (2000-an)</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Pilih topik kang lagi hangat dirembug utawa cedhak karo masyarakat (budaya, lingkungan, pendhidhikan).
+                Mlebu taun 2000-an nganti saiki, frekuensi tanggapan Emprak mudhun drastis lan meh cures (punah).
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 1 / 6
+              Kahanan 1 / 6
             </div>
           </div>
 
-          <!-- Step 2 -->
+          <!-- Point 2 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">2</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nemtokake Ancas</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Kalah Karo Hiburan Modern</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Temtokake tujuan tulisan: apa kanggo menehi informasi, njlentrehake, utawa ngajak pamaca.
+                Masyarakat saiki luwih seneng hiburan modern kayata orgen tunggal, televisi, lan tontonan ing HP.
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 2 / 6
+              Kahanan 2 / 6
             </div>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Point 3 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#d4af37] to-[#806116] text-[#0d0b12] font-serat-title font-black text-sm flex items-center justify-center shadow">3</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Ngumpulake Bahan</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Angel Regenerasi Pemain</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Golek referensi saka buku, internet, wawancara narasumber, utawa observasi langsung.
+                Angel golek generasi enom kang gelem sinau lan nerusake seni teater rakyat Emprak iki.
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 3 / 6
+              Kahanan 3 / 6
             </div>
           </div>
 
-          <!-- Step 4 -->
+          <!-- Point 4 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">4</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nyusun Cengkorongan</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Grup Sing Isih Aktif</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Gawe kerangka garis gedhe isi artikel saka pambuka nganti panutup supaya urut.
+                Grup Emprak ing Jepara kari sithik, salah sijine <strong>Kelompok Emprak Sido Mukti</strong> saka Desa
+                Kepuk, Kecamatan Bangsri.
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 4 / 6
+              Upaya 4 / 6
             </div>
           </div>
 
-          <!-- Step 5 -->
+          <!-- Point 5 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">5</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Ngembangake Tulisan</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Status WBTb Indonesia</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Tulis cengkorongan dadi paragraf kang wutuh nganggo basa lan ejaan Jawa kang bener.
+                Emprak wis resmi ditetepake dadi <strong>Warisan Budaya Takbenda (WBTb)</strong> Indonesia ing taun 2023.
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 5 / 6
+              Upaya 5 / 6
             </div>
           </div>
 
-          <!-- Step 6 -->
+          <!-- Point 6 -->
           <div class="serat-card tilt-card p-4 sm:p-5 flex flex-col justify-between">
             <div class="layer-z-15">
               <div class="flex items-center gap-2.5 mb-2">
                 <span
                   class="w-8 h-8 rounded-xl bg-gradient-to-br from-[#a87ffb] to-[#4c2875] text-[#f4f0ea] font-serat-title font-black text-sm flex items-center justify-center shadow border border-[#f5d76e]/40">6</span>
-                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Nyunting (Editing)</h3>
+                <h3 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Festival Teater Pelajar</h3>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Waca maneh tulisan kanggo mbenerake salah ketik (typo) lan unggah-ungguh basa.
+                Nglebokake Emprak ing festival pelajar lan konten digital supaya dikenal dening generasi mudha Jepara.
               </p>
             </div>
             <div
               class="mt-3 pt-2 border-t border-[#d4af37]/20 text-[10px] font-bold uppercase tracking-wider text-[#a87ffb]">
-              Tataran 6 / 6
+              Upaya 6 / 6
             </div>
           </div>
         </div>
@@ -788,7 +786,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 6: 5. BAB KANG KUDU DIGATEKAKE ING BASA JAWA
+         SLIDE 6: 5. UNSUR BASA ING ARTIKEL & PAGELARAN EMPRAK
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="5">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4 sm:space-y-5">
@@ -798,7 +796,7 @@
             Perangan V • Slide 6 / 8
           </span>
           <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-            5. Bab Kang Kudu Digatekake ing Basa Jawa
+            5. Unsur Basa ing Artikel & Pagelaran Emprak
           </h2>
         </div>
 
@@ -807,17 +805,16 @@
           <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
             <div class="layer-z-15">
               <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
-                Bab 01
+                Unsur 01
               </span>
               <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Unggah-ungguh Basa</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Gunakake ragam basa kang trep karo sasaran pamaca lan jenis medhiane. Umume artikel nggunakake
-                <strong>Ngoko Alus</strong> (kanggo umum/enom) utawa <strong>Krama Lugu/Alus</strong> (kanggo acara
-                resmi lan wong sepuh).
+                Ing artikel budaya iki nggunakake <strong>Basa Ngoko Alus</strong> supaya gampang dimangerteni pelajar,
+                dene ing pagelaran Emprak nggunakake basa padinan rakyat pesisir supaya raket karo penonton.
               </p>
             </div>
             <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#f5d76e] layer-z-15">
-              ✦ Treping basa miturut pamaca & medhia
+              ✦ Ragam Ngoko Alus & Basa Pesisiran
             </div>
           </div>
 
@@ -825,34 +822,33 @@
           <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#a87ffb]">
             <div class="layer-z-15">
               <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
-                Bab 02
+                Unsur 02
               </span>
               <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Paugeran Ejaan Basa Jawa</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Gatekake panulisan aksara vokal lan konsonan kanthi bener, kayata mbedakake swara <strong>'a'
-                  jejeg</strong> lan <strong>'a' miring</strong>, sarta panulisan konsonan <strong>'dh'</strong> lan
-                <strong>'th'</strong> (tuladha: <em>dhahar, bathik, kuthane</em>).
+                Gatekake panulisan aksara <strong>'dh'</strong> lan <strong>'th'</strong> ing tembung-tembung kesenian
+                Emprak, kayata: <em>dhagelan, kendhang, kenthongan, kethipung,</em> lan <em>sandhangan</em>.
               </p>
             </div>
             <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#a87ffb] layer-z-15">
-              ✦ Tuladha: dhahar, bathik, kuthane
+              ✦ Tuladha: dhagelan, kenthongan, kethipung
             </div>
           </div>
 
-          <!-- Aspect 3: Pilihan Tembung (Diksi) -->
+          <!-- Aspect 3: Tembung Khusus Kesenian -->
           <div class="serat-card tilt-card p-5 flex flex-col justify-between border-t-4 border-t-[#f5d76e]">
             <div class="layer-z-15">
               <span class="inline-block px-3 py-0.5 rounded-full bg-[#4c2875] text-[#f5d76e] text-xs font-bold mb-2.5">
-                Bab 03
+                Unsur 03
               </span>
-              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Pilihan Tembung (Diksi)</h3>
+              <h3 class="font-jawa-serif text-lg sm:text-xl font-bold text-[#f5d76e] mb-2">Tembung Khusus Kesenian</h3>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Pilih tembung kang mentes, efektif, lan gampang dimangerteni. Aja kakehan nggunakake tembung manca
-                (asing) yen isih ana padhanane ing basa Jawa.
+                Nggunakake istilah asli kabudayan Jawa sing mentes, kayata <em>tlatah</em> (wilayah), <em>cures</em>
+                (punah), <em>pitutur</em> (nasihat), <em>sewengi natas</em> (semalam suntuk), lan <em>nguri-uri</em>.
               </p>
             </div>
             <div class="mt-4 p-2.5 rounded-xl lontar-highlight text-xs text-[#f5d76e] layer-z-15">
-              ✦ Ngutamakake padhanan tembung Jawa
+              ✦ Kosakata asli kabudayan Jawa
             </div>
           </div>
         </div>
@@ -860,7 +856,7 @@
     </section>
 
     <!-- =========================================================
-         SLIDE 7: 6. TULADHA CENGKORONGAN ARTIKEL
+         SLIDE 7: 6. RINGKESAN STRUKTUR ARTIKEL EMPRAK
          ========================================================= -->
     <section class="slide-3d next-pos px-6 sm:px-12" data-slide="6">
       <div class="slide-inner-scroll w-full max-w-5xl mx-auto py-2 space-y-4">
@@ -870,7 +866,7 @@
             Perangan VI • Slide 7 / 8
           </span>
           <h2 class="font-serat-title text-2xl sm:text-4xl font-extrabold text-3d-bab">
-            6. Tuladha Cengkorongan Artikel
+            6. Struktur Wutuh Artikel Emprak
           </h2>
         </div>
 
@@ -886,11 +882,11 @@
           <div class="text-center pb-4 mb-5 border-b border-dashed border-[#d4af37]/45 space-y-1.5 layer-z-15">
             <span
               class="inline-block px-3.5 py-1 rounded-full bg-[#4c2875] border border-[#a87ffb]/50 text-[#f5d76e] text-[11px] font-bold uppercase tracking-widest">
-              TEMA ARTIKEL: Kabudayan & Basa Jawa
+              TEMA ARTIKEL: Kabudayan Tradisional Jepara
             </span>
             <p class="text-[11px] uppercase tracking-widest text-[#a87ffb] font-bold pt-1">Irah-irahan (Judul)</p>
             <h3 class="font-jawa-serif text-xl sm:text-3xl font-extrabold text-[#f5d76e]">
-              "Nguri-uri Basa Jawa ing Era Digital"
+              "Kesenian Emprak: Teater Rakyat Khas Jepara sing Meh Cures"
             </h3>
           </div>
 
@@ -904,8 +900,8 @@
                 <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Pambuka</h4>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Kahanan basa Jawa ing jaman saiki kang wiwit jarang digunakake dening generasi mudha ing pasrawungan
-                padinan.
+                Kabupaten Jepara uga nduweni kesenian teater rakyat <strong>Emprak</strong> ing Bangsri lan Pakisaji
+                kang nggabungake drama, tari, tembang Jawa, lan dhagelan.
               </p>
             </div>
 
@@ -917,8 +913,8 @@
                 <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Isi</h4>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Faktor penyebab lunturne basa Jawa lan cara nglestarekake lumantar media sosial (gawe konten kreatif ing
-                TikTok, YouTube, utawa Instagram).
+                Asal jeneng saka swara kenthongan <em>"prak... prak..."</em>, busana prasaja, iringan rebana-kendhang,
+                nganti kahanane saiki sing meh cures amarga kalah karo hiburan modern.
               </p>
             </div>
 
@@ -930,7 +926,8 @@
                 <h4 class="font-jawa-serif text-base sm:text-lg font-bold text-[#f5d76e]">Panutup</h4>
               </div>
               <p class="text-xs sm:text-sm text-[#f4f0ea]/95 leading-relaxed">
-                Pangajak marang para mudha supaya bangga lan ora isin nggunakake basa Jawa minangka jati dhiri bangsa.
+                Senajan wis dadi WBTb 2023, peran pemerintah, seniman, lan generasi mudha penting banget supaya
+                kesenian khas Jepara iki ora ilang ditelan jaman.
               </p>
             </div>
           </div>
@@ -955,8 +952,8 @@
 
             <blockquote
               class="layer-z-15 font-jawa-serif text-base sm:text-xl md:text-2xl font-bold text-[#f4f0ea] max-w-3xl mx-auto leading-relaxed">
-              "Nyerat artikel basa Jawa ora mung nglatih kaprigelan nulis lan mikir kritis, nanging uga dadi sarana
-              nyata kanggo nguri-uri lan nglestarekake basa sarta budaya Jawa."
+              "Kesenian Emprak minangka warisan budaya adiluhung saking Jepara ingkang kedah dipunuri-uri dening
+              generasi mudha supados tetep lestari lan mboten cures ditelan jaman."
             </blockquote>
 
             <div class="h-[1px] w-48 mx-auto bg-gradient-to-r from-transparent via-[#d4af37] to-transparent"></div>
@@ -1004,25 +1001,25 @@
       <div id="slide-dots" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-0.5">
         <button onclick="goToSlide(0)" data-dot="0"
           class="dot-indicator active w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 1: Sampul">1</button>
+          title="Slide 1: Sampul Emprak">1</button>
         <button onclick="goToSlide(1)" data-dot="1"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 2: Pangerten">2</button>
+          title="Slide 2: Pangerten Emprak">2</button>
         <button onclick="goToSlide(2)" data-dot="2"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 3: Struktur">3</button>
+          title="Slide 3: Sejarah & Asal-Usul">3</button>
         <button onclick="goToSlide(3)" data-dot="3"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 4: Jinis Artikel">4</button>
+          title="Slide 4: Ciri Khas Pagelaran">4</button>
         <button onclick="goToSlide(4)" data-dot="4"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 5: Trap-trapan">5</button>
+          title="Slide 5: Kahanan & Pelestarian">5</button>
         <button onclick="goToSlide(5)" data-dot="5"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 6: Bab Digatekake">6</button>
+          title="Slide 6: Unsur Basa">6</button>
         <button onclick="goToSlide(6)" data-dot="6"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
-          title="Slide 7: Tuladha">7</button>
+          title="Slide 7: Struktur Artikel">7</button>
         <button onclick="goToSlide(7)" data-dot="7"
           class="dot-indicator w-7 h-7 sm:w-8 sm:h-8 rounded-lg border border-[#d4af37]/40 bg-[#1e162e] text-xs font-bold text-[#f4f0ea] flex items-center justify-center shrink-0"
           title="Slide 8: Dudutan & Panutup">8</button>
@@ -1118,7 +1115,6 @@
     window.addEventListener('touchend', (e) => {
       const dx = e.changedTouches[0].screenX - touchStartX;
       const dy = e.changedTouches[0].screenY - touchStartY;
-      // Trigger slide switch only on deliberate horizontal swipe
       if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
         if (dx < 0) nextSlide();
         else prevSlide();
@@ -1147,7 +1143,7 @@
       });
     });
 
-    // Interactive Card Highlight on Slide 4 (Jinis-jinis Artikel)
+    // Interactive Card Highlight on Slide 4
     function highlightJinisCard(clickedCard) {
       const allJinis = document.querySelectorAll('.jinis-card');
       const alreadySelected = clickedCard.classList.contains('selected-jinis');
